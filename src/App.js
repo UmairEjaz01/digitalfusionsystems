@@ -1,69 +1,143 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, Mail, Globe, Clock, Award } from "lucide-react";
 import SectionTitle from "./components/SectionTitle";
 
 const nav = [
-  { label: "Capabilities", href: "#capabilities" },
+  { label: "Services", href: "#services" },
   { label: "Industries", href: "#industries" },
-  { label: "Work", href: "#work" },
-  { label: "Process", href: "#process" },
+  { label: "Technologies", href: "#technologies" },
   { label: "Contact", href: "#contact" },
 ];
 
-const capabilities = [
-  { title: "Digital Transformation", description: "Web, app, and software development with cutting-edge UX/UI." },
-  { title: "Business Applications", description: "Dynamics 365 ERP, CRM, Power Apps, and Salesforce solutions." },
-  { title: "Emerging Technologies", description: "Metaverse, AR, Blockchain, Gen AI, and advanced Data Analytics." },
-  { title: "Staff Augmentation", description: "Skilled professionals integrated seamlessly with your teams." },
-  { title: "Quality Assurance", description: "Reliable testing and QA for high-quality product delivery." },
-  { title: "DevOps", description: "CI/CD, infrastructure automation, and cloud-native operations." },
-  { title: "Cybersecurity", description: "Enterprise-grade security and compliance services." },
-  { title: "SaaS", description: "End-to-end SaaS product development and scaling." },
-  { title: "E-commerce", description: "Design, development, automation, and support for online businesses." },
-  { title: "Gaming", description: "Web3, AR/VR/XR, and immersive art & design experiences." },
-  { title: "Cloud", description: "Cloud applications, migration, and integration services." },
-  { title: "Data Analytics", description: "Unlock insights with BI dashboards, reporting, and AI-driven analytics." },
+const services = [
+  { 
+    title: "Digital Transformation", 
+    description: "Comprehensive modernization strategies that leverage emerging technologies to optimize workflows, enhance customer experiences, and drive competitive advantage.",
+    features: ["Legacy System Modernization", "Process Automation & Optimization", "Digital Strategy Consulting", "Change Management Support"]
+  },
+  { 
+    title: "Enterprise Applications", 
+    description: "Scalable, secure business applications built with enterprise-grade architecture to streamline operations and enhance productivity across your organization.",
+    features: ["Custom Enterprise Software", "ERP & CRM Solutions", "API Integration & Development", "Mobile Enterprise Apps"]
+  },
+  { 
+    title: "AI & Machine Learning", 
+    description: "Intelligent solutions that harness the power of artificial intelligence and machine learning to automate processes, predict outcomes, and drive data-driven decisions.",
+    features: ["Predictive Analytics", "Natural Language Processing", "Computer Vision Solutions", "Intelligent Automation"]
+  },
+  { 
+    title: "DevOps & Infrastructure", 
+    description: "Robust development operations and infrastructure solutions that ensure rapid deployment, high availability, and seamless scalability for your applications.",
+    features: ["CI/CD Pipeline Setup", "Infrastructure as Code", "Container Orchestration", "Monitoring & Logging"]
+  },
+  { 
+    title: "Cloud Solutions", 
+    description: "Comprehensive cloud migration and optimization services that leverage leading platforms to deliver scalable, cost-effective, and secure infrastructure solutions.",
+    features: ["Cloud Migration Strategy", "Multi-Cloud Architecture", "Serverless Computing", "Cloud Security & Compliance"]
+  },
+  { 
+    title: "Cybersecurity", 
+    description: "Advanced security solutions and consulting services that protect your digital assets, ensure compliance, and maintain business continuity in today's threat landscape.",
+    features: ["Security Assessment & Auditing", "Penetration Testing", "Compliance Management", "Incident Response Planning"]
+  },
+];
+
+const industries = [
+  "Travel & Hospitality",
+  "Telecommunication", 
+  "Oil, Gas, and Energy",
+  "E-commerce",
+  "Healthcare & Pharmaceuticals",
+  "Public Sector",
+  "Retail & CPG",
+  "Startups",
+  "Banking & Fintech",
+  "Gaming"
+];
+
+const technologies = [
+  { name: "React", category: "Frontend" },
+  { name: "Angular", category: "Frontend" },
+  { name: "Node.js", category: "Backend" },
+  { name: "Python", category: "Backend" },
+  { name: "PostgreSQL", category: "Database" },
+  { name: "MongoDB", category: "Database" },
+  { name: "AWS", category: "Cloud" },
+  { name: "Docker", category: "DevOps" },
+  { name: "Kubernetes", category: "DevOps" },
+  { name: "Azure", category: "Cloud" },
+  { name: "Google Cloud", category: "Cloud" },
+  { name: "Git", category: "Tools" },
 ];
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
+  const [activeSection, setActiveSection] = React.useState("services");
+  const [formData, setFormData] = React.useState({
+    fullName: "",
+    businessEmail: "",
+    companyName: "",
+    position: "",
+    enquiryDetails: ""
+  });
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission here
+    console.log("Form submitted:", formData);
+    alert("Thank you for your enquiry! We'll get back to you within 4 hours during business days.");
+    setFormData({
+      fullName: "",
+      businessEmail: "",
+      companyName: "",
+      position: "",
+      enquiryDetails: ""
+    });
+  };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white font-sans">
+    <div className="min-h-screen bg-white text-slate-900 font-sans">
       {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/50 dark:border-slate-800">
+      <header className="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-2xl bg-gradient-to-tr from-turquoise-600 to-cyan-400" />
+            <div className="h-9 w-9 rounded-2xl bg-gradient-to-tr from-teal-600 to-cyan-400" />
             <div>
-              <div className="text-lg font-bold leading-tight">Digital Fusion Systems</div>
+              <div className="text-lg font-bold leading-tight text-slate-900">Digital Fusion Systems</div>
               <div className="text-xs text-slate-500">digitalfusionsystems.com</div>
             </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-sm hover:text-turquoise-600">{n.label}</a>
+              <a key={n.href} href={n.href} className="text-sm text-slate-700 hover:text-teal-600 transition-colors">{n.label}</a>
             ))}
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium bg-turquoise-600 text-white shadow">
-              Start a project <ArrowRight className="w-4 h-4" />
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-teal-600 text-white hover:bg-teal-700 transition-colors">
+              Get Started
             </a>
           </nav>
 
-          <button className="md:hidden p-2 rounded-lg border border-slate-200 dark:border-slate-800" onClick={() => setOpen(!open)} aria-label="Toggle Menu">
+          <button className="md:hidden p-2 rounded-lg border border-slate-200" onClick={() => setOpen(!open)} aria-label="Toggle Menu">
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
 
         {open && (
-          <div className="md:hidden border-t border-slate-200 dark:border-slate-800">
+          <div className="md:hidden border-t border-slate-200 bg-white">
             <div className="px-4 py-3 flex flex-col gap-3">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} className="text-sm py-2" onClick={() => setOpen(false)}>{n.label}</a>
+                <a key={n.href} href={n.href} className="text-sm py-2 text-slate-700" onClick={() => setOpen(false)}>{n.label}</a>
               ))}
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2 text-sm font-medium bg-turquoise-600 text-white shadow" onClick={() => setOpen(false)}>
-                Start a project <ArrowRight className="w-4 h-4" />
+              <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-teal-600 text-white" onClick={() => setOpen(false)}>
+                Get Started
               </a>
             </div>
           </div>
@@ -71,31 +145,242 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-tr from-turquoise-600 via-cyan-500 to-sky-400 text-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-4 py-20 md:py-28">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl md:text-6xl font-extrabold tracking-tight">
             Transform. Innovate. Scale.
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.05 }} className="max-w-2xl mt-6 text-lg text-white/90">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.05 }} className="max-w-2xl mt-6 text-lg text-slate-300">
             We help businesses drive digital transformation, cloud adoption, and next‑gen technology innovation.
           </motion.p>
         </div>
       </section>
 
-      {/* Capabilities Section */}
-      <section id="capabilities" className="py-20 md:py-28">
+      {/* Services Section */}
+      <section id="services" className="py-20 md:py-28 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
-          <SectionTitle eyebrow="Capabilities" title="Our Expertise" subtitle="From digital transformation to data analytics and cloud innovation." />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {capabilities.map((cap, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: idx * 0.05 }} viewport={{ once: true }} className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm hover:shadow-md">
-                <h3 className="text-lg font-semibold text-turquoise-600">{cap.title}</h3>
-                <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{cap.description}</p>
+          <SectionTitle eyebrow="Services" title="Our Expertise" subtitle="From digital transformation to data analytics and cloud innovation." />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, idx) => (
+              <motion.div 
+                key={idx} 
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                transition={{ duration: 0.4, delay: idx * 0.1 }} 
+                viewport={{ once: true }} 
+                className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-gray-200"
+              >
+                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-6">
+                  <div className="w-6 h-6 bg-teal-600 rounded"></div>
+                </div>
+                <h3 className="text-xl font-semibold text-slate-900 mb-4">{service.title}</h3>
+                <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, featureIdx) => (
+                    <li key={featureIdx} className="flex items-center text-sm text-slate-600">
+                      <div className="w-1.5 h-1.5 bg-teal-600 rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Industries Section */}
+      <section id="industries" className="py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4">
+          <SectionTitle title="Industries" subtitle="We serve clients across diverse sectors with tailored solutions." />
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+            {industries.map((industry, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                viewport={{ once: true }}
+                className="py-4 text-slate-700 hover:text-teal-600 transition-colors cursor-pointer"
+              >
+                {industry}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Stack Section */}
+      <section id="technologies" className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <SectionTitle title="Cutting-Edge Technology Stack" subtitle="We leverage the latest technologies and frameworks to build robust, scalable, and future-ready solutions for your business." />
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+            {technologies.map((tech, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow border border-gray-200"
+              >
+                <div className="w-12 h-12 bg-teal-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
+                  <div className="w-6 h-6 bg-teal-600 rounded"></div>
+                </div>
+                <h4 className="font-semibold text-slate-900">{tech.name}</h4>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-20 md:py-28 bg-slate-900 text-white">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16">
+            {/* Left Column - Contact Info */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
+              <p className="text-slate-300 mb-12 text-lg">
+                Partner with us to unlock the full potential of digital transformation. 
+                Our expert team is ready to help you achieve your strategic objectives with innovative, scalable solutions.
+              </p>
+
+              <div className="space-y-8">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Email</h3>
+                    <p className="text-slate-300">info@digitalfusionsystems.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Globe className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Global Reach</h3>
+                    <p className="text-slate-300">Serving clients worldwide with 24/7 support</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Response Time</h3>
+                    <p className="text-slate-300">Within 4 hours during business days</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Award className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold mb-2">Certifications</h3>
+                    <p className="text-slate-300">ISO 27001, SOC 2 Type II Compliant</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Contact Form */}
+            <div className="bg-slate-800 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-6">Start Your Digital Transformation</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Your full name"
+                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="businessEmail" className="block text-sm font-medium mb-2">Business Email *</label>
+                  <input
+                    type="email"
+                    id="businessEmail"
+                    name="businessEmail"
+                    value={formData.businessEmail}
+                    onChange={handleInputChange}
+                    placeholder="your.email@company.com"
+                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="companyName" className="block text-sm font-medium mb-2">Company Name *</label>
+                  <input
+                    type="text"
+                    id="companyName"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    placeholder="Your company name"
+                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="position" className="block text-sm font-medium mb-2">Your Position</label>
+                  <input
+                    type="text"
+                    id="position"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
+                    placeholder="e.g. CTO, IT Director, etc."
+                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="enquiryDetails" className="block text-sm font-medium mb-2">Enquiry Details *</label>
+                  <textarea
+                    id="enquiryDetails"
+                    name="enquiryDetails"
+                    value={formData.enquiryDetails}
+                    onChange={handleInputChange}
+                    rows={4}
+                    placeholder="Please describe your project requirements, challenges, and objectives..."
+                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 resize-none"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
+                >
+                  <Mail className="w-5 h-5" />
+                  Send Enquiry
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-950 text-slate-400 py-8">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p>&copy; 2024 Digital Fusion Systems. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
