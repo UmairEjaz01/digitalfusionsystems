@@ -144,11 +144,11 @@ export default function App() {
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-10">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-base text-slate-300 hover:text-purple-400 transition-colors font-medium">{n.label}</a>
+              <a key={n.href} href={n.href} className="text-lg text-slate-200 hover:text-purple-300 transition-colors font-semibold">{n.label}</a>
             ))}
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-base font-medium bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transition-all shadow-lg">
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-8 py-3 text-lg font-bold bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transition-all shadow-lg">
               Get Started
             </a>
           </nav>
