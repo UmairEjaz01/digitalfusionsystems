@@ -319,6 +319,20 @@ export default function App() {
             {/* Right Column - Contact Form */}
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
               <h3 className="text-3xl font-bold mb-6">Start Your Digital Transformation</h3>
+              
+              {/* Form Status Messages */}
+              {formStatus === "success" && (
+                <div className="mb-6 p-4 bg-green-500/20 border border-green-400 rounded-lg">
+                  <p className="text-green-100 font-medium">✅ Thank you for your enquiry! We'll get back to you within 4 hours during business days.</p>
+                </div>
+              )}
+              
+              {formStatus === "error" && (
+                <div className="mb-6 p-4 bg-red-500/20 border border-red-400 rounded-lg">
+                  <p className="text-red-100 font-medium">❌ Sorry, there was an error sending your message. Please try again.</p>
+                </div>
+              )}
+              
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
