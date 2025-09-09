@@ -235,49 +235,268 @@ export default function App() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 md:py-28 bg-slate-900 text-white">
+      <section id="contact" className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 text-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Left Column - Contact Info */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Business?</h2>
-              <p className="text-slate-300 mb-12 text-lg">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
+              <p className="text-blue-100 mb-12 text-xl leading-relaxed">
                 Partner with us to unlock the full potential of digital transformation. 
                 Our expert team is ready to help you achieve your strategic objectives with innovative, scalable solutions.
               </p>
 
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-6 h-6" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-7 h-7" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Email</h3>
-                    <p className="text-slate-300">info@digitalfusionsystems.com</p>
+                    <h3 className="font-bold text-xl mb-2">Response Time</h3>
+                    <p className="text-blue-100 text-lg">Within 4 hours during business days</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Globe className="w-6 h-6" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Award className="w-7 h-7" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Global Reach</h3>
-                    <p className="text-slate-300">Serving clients worldwide with 24/7 support</p>
+                    <h3 className="font-bold text-xl mb-2">Certifications</h3>
+                    <p className="text-blue-100 text-lg">ISO 27001, SOC 2 Type II Compliant</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Contact Form */}
+            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+              <h3 className="text-3xl font-bold mb-6">Start Your Digital Transformation</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Your full name"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="businessEmail" className="block text-sm font-medium mb-2">Business Email *</label>
+                  <input
+                    type="email"
+                    id="businessEmail"
+                    name="businessEmail"
+                    value={formData.businessEmail}
+                    onChange={handleInputChange}
+                    placeholder="your.email@company.com"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="companyName" className="block text-sm font-medium mb-2">Company Name *</label>
+                  <input
+                    type="text"
+                    id="companyName"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    placeholder="Your company name"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="position" className="block text-sm font-medium mb-2">Your Position</label>
+                  <input
+                    type="text"
+                    id="position"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
+                    placeholder="e.g. CTO, IT Director, etc."
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="enquiryDetails" className="block text-sm font-medium mb-2">Enquiry Details *</label>
+                  <textarea
+                    id="enquiryDetails"
+                    name="enquiryDetails"
+                    value={formData.enquiryDetails}
+                    onChange={handleInputChange}
+                    rows={4}
+                    placeholder="Please describe your project requirements, challenges, and objectives..."
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg"
+                >
+                  <Mail className="w-5 h-5" />
+                  Send Enquiry
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-950 text-slate-400 py-8">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p>&copy; 2024 Digital Fusion Systems. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  );
+}-start gap-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">Email</h3>
+                    <p className="text-blue-100 text-lg">info@digitalfusionsystems.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6" />
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Globe className="w-7 h-7" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Response Time</h3>
-                    <p className="text-slate-300">Within 4 hours during business days</p>
+                    <h3 className="font-bold text-xl mb-2">Global Reach</h3>
+                    <p className="text-blue-100 text-lg">Serving clients worldwide with 24/7 support</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">Response Time</h3>
+                    <p className="text-blue-100 text-lg">Within 4 hours during business days</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <Award className="w-7 h-7" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-xl mb-2">Certifications</h3>
+                    <p className="text-blue-100 text-lg">ISO 27001, SOC 2 Type II Compliant</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Contact Form */}
+            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
+              <h3 className="text-3xl font-bold mb-6">Start Your Digital Transformation</h3>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleInputChange}
+                    placeholder="Your full name"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="businessEmail" className="block text-sm font-medium mb-2">Business Email *</label>
+                  <input
+                    type="email"
+                    id="businessEmail"
+                    name="businessEmail"
+                    value={formData.businessEmail}
+                    onChange={handleInputChange}
+                    placeholder="your.email@company.com"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="companyName" className="block text-sm font-medium mb-2">Company Name *</label>
+                  <input
+                    type="text"
+                    id="companyName"
+                    name="companyName"
+                    value={formData.companyName}
+                    onChange={handleInputChange}
+                    placeholder="Your company name"
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="position" className="block text-sm font-medium mb-2">Your Position</label>
+                  <input
+                    type="text"
+                    id="position"
+                    name="position"
+                    value={formData.position}
+                    onChange={handleInputChange}
+                    placeholder="e.g. CTO, IT Director, etc."
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="enquiryDetails" className="block text-sm font-medium mb-2">Enquiry Details *</label>
+                  <textarea
+                    id="enquiryDetails"
+                    name="enquiryDetails"
+                    value={formData.enquiryDetails}
+                    onChange={handleInputChange}
+                    rows={4}
+                    placeholder="Please describe your project requirements, challenges, and objectives..."
+                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none"
+                    required
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg"
+                >
+                  <Mail className="w-5 h-5" />
+                  Send Enquiry
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-950 text-slate-400 py-8">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <p>&copy; 2024 Digital Fusion Systems. All rights reserved.</p>
+        </div>
+      </footer>-start gap-4">
                   <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
                     <Award className="w-6 h-6" />
                   </div>
