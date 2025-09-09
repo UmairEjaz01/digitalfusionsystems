@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Menu, X, Mail, Globe, Clock, Award } from "lucide-react";
+import { ArrowRight, Menu, X, Mail, Globe, Clock, Award, Code, Database, Cloud, Shield, Smartphone, Zap, Brain, Settings, Server, Layers } from "lucide-react";
 import SectionTitle from "./components/SectionTitle";
 
 const nav = [
@@ -13,31 +13,37 @@ const nav = [
 const services = [
   { 
     title: "Digital Transformation", 
+    icon: Zap,
     description: "Comprehensive modernization strategies that leverage emerging technologies to optimize workflows, enhance customer experiences, and drive competitive advantage.",
     features: ["Legacy System Modernization", "Process Automation & Optimization", "Digital Strategy Consulting", "Change Management Support"]
   },
   { 
     title: "Enterprise Applications", 
+    icon: Layers,
     description: "Scalable, secure business applications built with enterprise-grade architecture to streamline operations and enhance productivity across your organization.",
     features: ["Custom Enterprise Software", "ERP & CRM Solutions", "API Integration & Development", "Mobile Enterprise Apps"]
   },
   { 
     title: "AI & Machine Learning", 
+    icon: Brain,
     description: "Intelligent solutions that harness the power of artificial intelligence and machine learning to automate processes, predict outcomes, and drive data-driven decisions.",
     features: ["Predictive Analytics", "Natural Language Processing", "Computer Vision Solutions", "Intelligent Automation"]
   },
   { 
     title: "DevOps & Infrastructure", 
+    icon: Server,
     description: "Robust development operations and infrastructure solutions that ensure rapid deployment, high availability, and seamless scalability for your applications.",
     features: ["CI/CD Pipeline Setup", "Infrastructure as Code", "Container Orchestration", "Monitoring & Logging"]
   },
   { 
     title: "Cloud Solutions", 
+    icon: Cloud,
     description: "Comprehensive cloud migration and optimization services that leverage leading platforms to deliver scalable, cost-effective, and secure infrastructure solutions.",
     features: ["Cloud Migration Strategy", "Multi-Cloud Architecture", "Serverless Computing", "Cloud Security & Compliance"]
   },
   { 
     title: "Cybersecurity", 
+    icon: Shield,
     description: "Advanced security solutions and consulting services that protect your digital assets, ensure compliance, and maintain business continuity in today's threat landscape.",
     features: ["Security Assessment & Auditing", "Penetration Testing", "Compliance Management", "Incident Response Planning"]
   },
@@ -57,23 +63,22 @@ const industries = [
 ];
 
 const technologies = [
-  { name: "React", category: "Frontend" },
-  { name: "Angular", category: "Frontend" },
-  { name: "Node.js", category: "Backend" },
-  { name: "Python", category: "Backend" },
-  { name: "PostgreSQL", category: "Database" },
-  { name: "MongoDB", category: "Database" },
-  { name: "AWS", category: "Cloud" },
-  { name: "Docker", category: "DevOps" },
-  { name: "Kubernetes", category: "DevOps" },
-  { name: "Azure", category: "Cloud" },
-  { name: "Google Cloud", category: "Cloud" },
-  { name: "Git", category: "Tools" },
+  { name: "React", category: "Frontend", icon: Code },
+  { name: "Angular", category: "Frontend", icon: Code },
+  { name: "Node.js", category: "Backend", icon: Server },
+  { name: "Python", category: "Backend", icon: Server },
+  { name: "PostgreSQL", category: "Database", icon: Database },
+  { name: "MongoDB", category: "Database", icon: Database },
+  { name: "AWS", category: "Cloud", icon: Cloud },
+  { name: "Docker", category: "DevOps", icon: Settings },
+  { name: "Kubernetes", category: "DevOps", icon: Settings },
+  { name: "Azure", category: "Cloud", icon: Cloud },
+  { name: "Google Cloud", category: "Cloud", icon: Cloud },
+  { name: "Git", category: "Tools", icon: Code },
 ];
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
-  const [activeSection, setActiveSection] = React.useState("services");
   const [formData, setFormData] = React.useState({
     fullName: "",
     businessEmail: "",
@@ -89,18 +94,40 @@ export default function App() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    alert("Thank you for your enquiry! We'll get back to you within 4 hours during business days.");
-    setFormData({
-      fullName: "",
-      businessEmail: "",
-      companyName: "",
-      position: "",
-      enquiryDetails: ""
-    });
+    
+    try {
+      const response = await fetch('https://formspree.io/f/mdklbnwr', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.fullName,
+          email: formData.businessEmail,
+          company: formData.companyName,
+          position: formData.position,
+          message: formData.enquiryDetails
+        }),
+      });
+      
+      if (response.ok) {
+        alert("Thank you for your enquiry! We'll get back to you within 4 hours during business days.");
+        setFormData({
+          fullName: "",
+          businessEmail: "",
+          companyName: "",
+          position: "",
+          enquiryDetails: ""
+        });
+      } else {
+        alert("Sorry, there was an error sending your message. Please try again.");
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert("Sorry, there was an error sending your message. Please try again.");
+    }
   };
 
   return (
@@ -109,18 +136,17 @@ export default function App() {
       <header className="sticky top-0 z-50 backdrop-blur bg-white/90 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
-            <div className="h-9 w-9 rounded-2xl bg-gradient-to-tr from-teal-600 to-cyan-400" />
+            <div className="h-9 w-9 rounded-2xl bg-gradient-to-tr from-purple-600 to-blue-500" />
             <div>
-              <div className="text-lg font-bold leading-tight text-slate-900">Digital Fusion Systems</div>
-              <div className="text-xs text-slate-500">digitalfusionsystems.com</div>
+              <div className="text-xl font-bold leading-tight text-slate-900">Digital Fusion Systems</div>
             </div>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-sm text-slate-700 hover:text-teal-600 transition-colors">{n.label}</a>
+              <a key={n.href} href={n.href} className="text-sm text-slate-700 hover:text-purple-600 transition-colors font-medium">{n.label}</a>
             ))}
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-teal-600 text-white hover:bg-teal-700 transition-colors">
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-6 py-2 text-sm font-medium bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transition-all shadow-lg">
               Get Started
             </a>
           </nav>
@@ -134,9 +160,9 @@ export default function App() {
           <div className="md:hidden border-t border-slate-200 bg-white">
             <div className="px-4 py-3 flex flex-col gap-3">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} className="text-sm py-2 text-slate-700" onClick={() => setOpen(false)}>{n.label}</a>
+                <a key={n.href} href={n.href} className="text-sm py-2 text-slate-700 font-medium" onClick={() => setOpen(false)}>{n.label}</a>
               ))}
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-teal-600 text-white" onClick={() => setOpen(false)}>
+              <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium bg-gradient-to-r from-purple-600 to-blue-500 text-white" onClick={() => setOpen(false)}>
                 Get Started
               </a>
             </div>
@@ -145,12 +171,13 @@ export default function App() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-4 py-20 md:py-28">
-          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl md:text-6xl font-extrabold tracking-tight">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM5QzkyQUMiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSI0Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
+        <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
+          <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
             Transform. Innovate. Scale.
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.05 }} className="max-w-2xl mt-6 text-lg text-slate-300">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }} className="max-w-3xl mt-6 text-xl md:text-2xl text-blue-100 leading-relaxed">
             We help businesses drive digital transformation, cloud adoption, and next‑gen technology innovation.
           </motion.p>
         </div>
@@ -168,17 +195,17 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }} 
                 transition={{ duration: 0.4, delay: idx * 0.1 }} 
                 viewport={{ once: true }} 
-                className="bg-white rounded-xl p-8 shadow-sm hover:shadow-lg transition-shadow border border-gray-200"
+                className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-200"
               >
-                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-6">
-                  <div className="w-6 h-6 bg-teal-600 rounded"></div>
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mb-6">
+                  <service.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-4">{service.title}</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-4">{service.title}</h3>
                 <p className="text-slate-600 mb-6 leading-relaxed">{service.description}</p>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {service.features.map((feature, featureIdx) => (
                     <li key={featureIdx} className="flex items-center text-sm text-slate-600">
-                      <div className="w-1.5 h-1.5 bg-teal-600 rounded-full mr-3"></div>
+                      <div className="w-1.5 h-1.5 bg-purple-500 rounded-full mr-3"></div>
                       {feature}
                     </li>
                   ))}
@@ -201,7 +228,7 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className="py-4 text-slate-700 hover:text-teal-600 transition-colors cursor-pointer"
+                className="flex items-center text-sm text-slate-700 hover:text-purple-600 transition-colors cursor-pointer"
               >
                 {industry}
               </motion.div>
@@ -222,12 +249,12 @@ export default function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.3, delay: idx * 0.05 }}
                 viewport={{ once: true }}
-                className="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-shadow border border-gray-200"
+                className="bg-white rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-purple-200"
               >
-                <div className="w-12 h-12 bg-teal-100 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                  <div className="w-6 h-6 bg-teal-600 rounded"></div>
+                <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
+                  <tech.icon className="w-7 h-7 text-white" />
                 </div>
-                <h4 className="font-semibold text-slate-900">{tech.name}</h4>
+                <h4 className="font-bold text-slate-900 text-lg">{tech.name}</h4>
               </motion.div>
             ))}
           </div>
@@ -248,122 +275,6 @@ export default function App() {
 
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Response Time</h3>
-                    <p className="text-blue-100 text-lg">Within 4 hours during business days</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Award className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Certifications</h3>
-                    <p className="text-blue-100 text-lg">ISO 27001, SOC 2 Type II Compliant</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Contact Form */}
-            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-              <h3 className="text-3xl font-bold mb-6">Start Your Digital Transformation</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                    placeholder="Your full name"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="businessEmail" className="block text-sm font-medium mb-2">Business Email *</label>
-                  <input
-                    type="email"
-                    id="businessEmail"
-                    name="businessEmail"
-                    value={formData.businessEmail}
-                    onChange={handleInputChange}
-                    placeholder="your.email@company.com"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="companyName" className="block text-sm font-medium mb-2">Company Name *</label>
-                  <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleInputChange}
-                    placeholder="Your company name"
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="position" className="block text-sm font-medium mb-2">Your Position</label>
-                  <input
-                    type="text"
-                    id="position"
-                    name="position"
-                    value={formData.position}
-                    onChange={handleInputChange}
-                    placeholder="e.g. CTO, IT Director, etc."
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="enquiryDetails" className="block text-sm font-medium mb-2">Enquiry Details *</label>
-                  <textarea
-                    id="enquiryDetails"
-                    name="enquiryDetails"
-                    value={formData.enquiryDetails}
-                    onChange={handleInputChange}
-                    rows={4}
-                    placeholder="Please describe your project requirements, challenges, and objectives..."
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none"
-                    required
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg"
-                >
-                  <Mail className="w-5 h-5" />
-                  Send Enquiry
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-8">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p>&copy; 2024 Digital Fusion Systems. All rights reserved.</p>
-        </div>
-      </footer>
-    </div>
-  );
-}-start gap-4">
                   <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Mail className="w-7 h-7" />
                   </div>
@@ -481,109 +392,6 @@ export default function App() {
                 <button
                   type="submit"
                   className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg"
-                >
-                  <Mail className="w-5 h-5" />
-                  Send Enquiry
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-8">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p>&copy; 2024 Digital Fusion Systems. All rights reserved.</p>
-        </div>
-      </footer>-start gap-4">
-                  <div className="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Award className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-2">Certifications</h3>
-                    <p className="text-slate-300">ISO 27001, SOC 2 Type II Compliant</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Contact Form */}
-            <div className="bg-slate-800 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6">Start Your Digital Transformation</h3>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
-                  <input
-                    type="text"
-                    id="fullName"
-                    name="fullName"
-                    value={formData.fullName}
-                    onChange={handleInputChange}
-                    placeholder="Your full name"
-                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="businessEmail" className="block text-sm font-medium mb-2">Business Email *</label>
-                  <input
-                    type="email"
-                    id="businessEmail"
-                    name="businessEmail"
-                    value={formData.businessEmail}
-                    onChange={handleInputChange}
-                    placeholder="your.email@company.com"
-                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="companyName" className="block text-sm font-medium mb-2">Company Name *</label>
-                  <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    value={formData.companyName}
-                    onChange={handleInputChange}
-                    placeholder="Your company name"
-                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                    required
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="position" className="block text-sm font-medium mb-2">Your Position</label>
-                  <input
-                    type="text"
-                    id="position"
-                    name="position"
-                    value={formData.position}
-                    onChange={handleInputChange}
-                    placeholder="e.g. CTO, IT Director, etc."
-                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="enquiryDetails" className="block text-sm font-medium mb-2">Enquiry Details *</label>
-                  <textarea
-                    id="enquiryDetails"
-                    name="enquiryDetails"
-                    value={formData.enquiryDetails}
-                    onChange={handleInputChange}
-                    rows={4}
-                    placeholder="Please describe your project requirements, challenges, and objectives..."
-                    className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 resize-none"
-                    required
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-medium py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2"
                 >
                   <Mail className="w-5 h-5" />
                   Send Enquiry
