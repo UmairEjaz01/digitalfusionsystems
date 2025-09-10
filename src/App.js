@@ -210,6 +210,12 @@ const teamMembers = [
     initials: "SK"
   },
   {
+    name: "Umair Ejaz",
+    title: "Principal Architect/DevOps",
+    credentials: "Azure, AWS, GCP, 10+ years",
+    initials: "UE"
+  },
+  {
     name: "Marcus Chen",
     title: "Cloud Solutions Director",
     credentials: "AWS Certified Solutions Architect, 12+ years",
