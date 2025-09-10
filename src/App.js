@@ -138,7 +138,7 @@ export default function App() {
       <header className="sticky top-0 z-50 backdrop-blur bg-slate-900/95 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
-            <img src="/DF.png" alt="Digital Fusion Systems Logo" className="h-12 w-12" />
+            <img src="/DF5.png" alt="Digital Fusion Systems Logo" className="h-12 w-12" />
             <div>
               <div className="text-3xl font-bold leading-tight text-white">Digital Fusion Systems</div>
             </div>
