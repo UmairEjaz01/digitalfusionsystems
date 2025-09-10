@@ -597,16 +597,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Phone</h3>
-                    <p className="text-blue-100 text-lg">+61 123 4567 89</p>
-                    <p className="text-blue-200 text-sm">24/7 Emergency Support Available</p>
-                  </div>
-                </div>
+               
 
                 <div className="flex items-start gap-4">
                   <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
@@ -704,23 +695,6 @@ export default function App() {
                 </div>
 
                 
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-medium mb-2">Budget Range</label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="under-50k">Under $50K</option>
-                      <option value="50k-100k">$50K - $100K</option>
-                      <option value="100k-250k">$100K - $250K</option>
-                      <option value="250k-500k">$250K - $500K</option>
-                      <option value="500k+">$500K+</option>
-                      <option value="discuss">Prefer to discuss</option>
-                    </select>
-                  </div>
-                </div>
 
                 <div>
                   <label htmlFor="enquiryDetails" className="block text-sm font-medium mb-2">Project Details *</label>
