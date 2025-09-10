@@ -260,7 +260,7 @@ React.useEffect(() => {
 )}
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur bg-slate-900/95 border-b border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-8">
+        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
           <a href="#" className="flex items-center gap-3">
             <img src="/DF5.png" alt="Digital Fusion Systems Logo" className="h-12 w-12" />
             <div>
