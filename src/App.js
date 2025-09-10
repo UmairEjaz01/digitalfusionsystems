@@ -4,10 +4,10 @@ import { ArrowRight, Menu, X, Mail, Globe, Clock, Award, Code, Database, Cloud, 
 
 // Component for section titles
 const SectionTitle = ({ eyebrow, title, subtitle }) => (
-  <div className="text-center mb-16">
-    {eyebrow && <p className="text-purple-400 font-semibold text-lg mb-4 uppercase tracking-wide">{eyebrow}</p>}
-    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">{title}</h2>
-    <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">{subtitle}</p>
+  <div className="text-center mb-20">
+    {eyebrow && <p className="text-purple-400 font-bold text-sm mb-6 uppercase tracking-widest">{eyebrow}</p>}
+    <h2 className="text-5xl md:text-6xl font-black text-white mb-8 leading-tight">{title}</h2>
+    <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">{subtitle}</p>
   </div>
 );
 
@@ -88,14 +88,37 @@ const industries = [
 
 // Client logos for social proof
 const clientLogos = [
-  { name: "Major Bank", logo: "🏦", sector: "Banking" },
-  { name: "Healthcare System", logo: "🏥", sector: "Healthcare" },
-  { name: "Government Agency", logo: "🏛️", sector: "Public Sector" },
-  { name: "Tech Startup", logo: "🚀", sector: "Technology" },
-  { name: "Energy Corp", logo: "⚡", sector: "Energy" },
-  { name: "Retail Chain", logo: "🛍️", sector: "Retail" }
+  { 
+    name: "Microsoft", 
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg", 
+    sector: "Technology" 
+  },
+  { 
+    name: "Amazon", 
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/amazon.svg", 
+    sector: "Cloud Services" 
+  },
+  { 
+    name: "IBM", 
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/ibm.svg", 
+    sector: "Enterprise" 
+  },
+  { 
+    name: "Oracle", 
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/oracle.svg", 
+    sector: "Database" 
+  },
+  { 
+    name: "Salesforce", 
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/salesforce.svg", 
+    sector: "CRM" 
+  },
+  { 
+    name: "SAP", 
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/sap.svg", 
+    sector: "Enterprise Software" 
+  }
 ];
-
 // Real testimonials from key sectors
 const testimonials = [
   {
@@ -185,19 +208,19 @@ const teamMembers = [
     name: "Alex Johnson",
     title: "CEO & Technical Lead",
     credentials: "15+ years, former Microsoft Azure architect",
-    image: "👨‍💼"
+    initials: "AJ"
   },
   {
     name: "Sarah Kim",
     title: "Head of AI/ML",
     credentials: "PhD Computer Science, ex-Google AI researcher",
-    image: "👩‍💻"
+    initials: "SK"
   },
   {
     name: "Marcus Chen",
     title: "Cloud Solutions Director",
     credentials: "AWS Certified Solutions Architect, 12+ years",
-    image: "👨‍🔬"
+    initials: "MC"
   }
 ];
 
@@ -258,7 +281,7 @@ export default function App() {
               <Star className="w-5 h-5 text-yellow-400" />
               <span className="text-sm font-semibold">Trusted by 200+ Enterprise Clients</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight mb-6">
+            <h1 className="text-6xl md:text-8xl font-black tracking-tight leading-[0.9] mb-8">
               Reduce Costs by 30%<br />
               <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">In 8-12 Weeks</span>
             </h1>
