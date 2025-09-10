@@ -320,19 +320,21 @@ export default function App() {
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
               {clientLogos.map((client, idx) => (
                 <motion.div
-                  key={idx}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.4, delay: idx * 0.1 }}
-                  viewport={{ once: true }}
-                  className="flex items-center gap-3 bg-slate-700 px-6 py-3 rounded-lg border border-slate-600"
-                >
-                  <span className="text-2xl">{client.logo}</span>
-                  <div>
-                    <div className="text-white font-semibold">{client.name}</div>
-                    <div className="text-slate-400 text-sm">{client.sector}</div>
-                  </div>
-                </motion.div>
+                key={idx}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-3 bg-slate-700 px-6 py-3 rounded-lg border border-slate-600"
+              >
+                <div className="w-8 h-8 flex items-center justify-center">
+                  <img src={client.logo} alt={client.name} className="w-8 h-8 object-contain" />
+                </div>
+                <div>
+                  <div className="text-white font-semibold">{client.name}</div>
+                  <div className="text-slate-400 text-sm">{client.sector}</div>
+                </div>
+              </motion.div>
               ))}
             </div>
           </div>
