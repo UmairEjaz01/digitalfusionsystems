@@ -603,7 +603,7 @@ export default function App() {
                   </div>
                   <div>
                     <h3 className="font-bold text-xl mb-2">Phone</h3>
-                    <p className="text-blue-100 text-lg">+1 (555) 123-4567</p>
+                    <p className="text-blue-100 text-lg">+61 123 4567 89</p>
                     <p className="text-blue-200 text-sm">24/7 Emergency Support Available</p>
                   </div>
                 </div>
@@ -670,7 +670,7 @@ export default function App() {
                       type="tel"
                       id="phone"
                       name="phone"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+61 123 4567 89"
                       className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
                     />
                   </div>
@@ -700,42 +700,10 @@ export default function App() {
                     />
                   </div>
 
-                  <div>
-                    <label htmlFor="projectType" className="block text-sm font-medium mb-2">Project Type</label>
-                    <select
-                      id="projectType"
-                      name="projectType"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="digital-transformation">Digital Transformation</option>
-                      <option value="enterprise-apps">Enterprise Applications</option>
-                      <option value="ai-ml">AI & Machine Learning</option>
-                      <option value="devops">DevOps & Infrastructure</option>
-                      <option value="cloud-solutions">Cloud Solutions</option>
-                      <option value="cybersecurity">Cybersecurity</option>
-                      <option value="consultation">General Consultation</option>
-                    </select>
-                  </div>
+                  
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="timeline" className="block text-sm font-medium mb-2">Project Timeline</label>
-                    <select
-                      id="timeline"
-                      name="timeline"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    >
-                      <option value="">Select timeline</option>
-                      <option value="asap">ASAP (Rush project)</option>
-                      <option value="1-3months">1-3 months</option>
-                      <option value="3-6months">3-6 months</option>
-                      <option value="6months+">6+ months</option>
-                      <option value="flexible">Flexible</option>
-                    </select>
-                  </div>
-
+                
                   <div>
                     <label htmlFor="budget" className="block text-sm font-medium mb-2">Budget Range</label>
                     <select
