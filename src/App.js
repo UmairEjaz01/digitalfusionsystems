@@ -225,9 +225,39 @@ const teamMembers = [
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
+const [showFloatingCTA, setShowFloatingCTA] = React.useState(false);
+
+React.useEffect(() => {
+  const handleScroll = () => {
+    // Show floating CTA after scrolling past hero section
+    setShowFloatingCTA(window.scrollY > 800);
+  };
+
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans">
+    {/* Floating CTA Button */}
+      {showFloatingCTA && (
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 50 }}
+          className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50"
+        >
+          
+            href="#contact"
+            className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-16 rounded-l-2xl shadow-2xl transition-all duration-300 flex items-center justify-center group"
+            style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+          >
+            <span className="font-bold text-sm tracking-wider group-hover:tracking-widest transition-all">
+              Let's Talk Business
+            </span>
+          </a>
+        </motion.div>
+      )}
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur bg-slate-900/95 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
