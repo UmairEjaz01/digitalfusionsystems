@@ -108,7 +108,7 @@ const clientLogos = [
   },
   { 
     name: "Oracle", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg", 
     sector: "Database" 
   }
 ];
