@@ -260,7 +260,7 @@ React.useEffect(() => {
 )}
       {/* Header */}
       <header className="sticky top-0 z-50 backdrop-blur bg-slate-900/95 border-b border-slate-700">
-        <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+        <div className="max-w-full mx-auto px-6 md:px-12 py-4 flex items-center justify-between gap-4">
           <a href="#" className="flex items-center gap-3">
             <img src="/DF5.png" alt="Digital Fusion Systems Logo" className="h-12 w-12" />
             <div>
@@ -304,7 +304,7 @@ React.useEffect(() => {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM5QzkyQUMiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSI0Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
-        <div className="relative max-w-7xl mx-auto px-4 py-28 md:py-36">
+       <div className="relative max-w-full mx-auto px-6 md:px-12 py-28 md:py-36">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center">
             <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/30 rounded-full px-6 py-2 mb-8">
               <Star className="w-5 h-5 text-yellow-400" />
@@ -350,7 +350,7 @@ React.useEffect(() => {
 
      {/* Client Logos Section */}
       <section className="py-16 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-6 md:px-12">
           <div className="text-center mb-12">
             <p className="text-slate-400 text-lg mb-6">Trusted by leading organizations across industries</p>
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
@@ -379,7 +379,7 @@ React.useEffect(() => {
 
       {/* Results/Case Studies Section */}
       <section id="results" className="py-20 md:py-28 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-6 md:px-12">
           <SectionTitle 
             title="Proven Results" 
             subtitle="Real outcomes from our enterprise clients across banking, healthcare, and government sectors." 
@@ -464,7 +464,7 @@ React.useEffect(() => {
 
       {/* Services Section */}
       <section id="services" className="py-20 md:py-28 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-6 md:px-12">
           <SectionTitle eyebrow="Services" title="Enterprise Solutions That Deliver" subtitle="Proven methodologies with guaranteed ROI and measurable outcomes." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, idx) => (
@@ -518,7 +518,7 @@ React.useEffect(() => {
 
       {/* Industries Section */}
       <section id="industries" className="py-20 md:py-28 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-6 md:px-12">
           <SectionTitle title="Industries We Serve" subtitle="Specialized expertise across sectors with deep domain knowledge and compliance requirements." />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             {industries.map((industry, idx) => (
@@ -549,7 +549,7 @@ React.useEffect(() => {
 
       {/* About/Team Section */}
       <section id="about" className="py-20 md:py-28 bg-slate-800">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-6 md:px-12">
           <SectionTitle title="Expert Team" subtitle="Industry veterans with proven track records at Fortune 500 companies." />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -600,7 +600,7 @@ React.useEffect(() => {
       </section>
     {/* Technology Stack Section */}
       <section id="technologies" className="py-20 md:py-28 bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-6 md:px-12">
           <SectionTitle title="Enterprise-Grade Technology Stack" subtitle="Cutting-edge technologies proven at scale with Fortune 500 companies." />
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
             {technologies.map((tech, idx) => (
@@ -625,7 +625,7 @@ React.useEffect(() => {
 
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 text-white">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Left Column - Contact Info */}
             <div>
@@ -786,7 +786,7 @@ React.useEffect(() => {
 
       {/* Footer */}
       <footer className="bg-slate-950 text-slate-400 py-12">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-full mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-3 mb-4">
