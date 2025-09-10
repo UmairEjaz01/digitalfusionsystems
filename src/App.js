@@ -253,8 +253,12 @@ export default function App() {
                 viewport={{ once: true }}
                 className="bg-slate-700 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-600 hover:border-purple-400"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl mx-auto mb-4 flex items-center justify-center">
-                  <tech.icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-white rounded-xl mx-auto mb-4 flex items-center justify-center p-2">
+                  {tech.logo ? (
+                    <img src={tech.logo} alt={tech.name} className="w-12 h-12 object-contain" />
+                  ) : (
+                    <tech.icon className="w-8 h-8 text-slate-600" />
+                  )}
                 </div>
                 <h4 className="font-bold text-white text-xl">{tech.name}</h4>
               </motion.div>
