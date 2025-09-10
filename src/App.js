@@ -63,18 +63,18 @@ const industries = [
 ];
 
 const technologies = [
-  { name: "React", category: "Frontend", icon: Code },
-  { name: "Angular", category: "Frontend", icon: Code },
-  { name: "Node.js", category: "Backend", icon: Server },
-  { name: "Python", category: "Backend", icon: Server },
-  { name: "PostgreSQL", category: "Database", icon: Database },
-  { name: "MongoDB", category: "Database", icon: Database },
-  { name: "AWS", category: "Cloud", icon: Cloud },
-  { name: "Docker", category: "DevOps", icon: Settings },
-  { name: "Kubernetes", category: "DevOps", icon: Settings },
-  { name: "Azure", category: "Cloud", icon: Cloud },
-  { name: "Google Cloud", category: "Cloud", icon: Cloud },
-  { name: "Git", category: "Tools", icon: Code },
+  { name: "React", category: "Frontend", icon: Code, color: "text-blue-400" },
+  { name: "Angular", category: "Frontend", icon: Code, color: "text-red-500" },
+  { name: "Node.js", category: "Backend", icon: Server, color: "text-green-500" },
+  { name: "Python", category: "Backend", icon: Server, color: "text-yellow-400" },
+  { name: "PostgreSQL", category: "Database", icon: Database, color: "text-blue-600" },
+  { name: "MongoDB", category: "Database", icon: Database, color: "text-green-600" },
+  { name: "AWS", category: "Cloud", icon: Cloud, color: "text-orange-400" },
+  { name: "Docker", category: "DevOps", icon: Settings, color: "text-blue-500" },
+  { name: "Kubernetes", category: "DevOps", icon: Settings, color: "text-blue-600" },
+  { name: "Azure", category: "Cloud", icon: Cloud, color: "text-blue-500" },
+  { name: "Google Cloud", category: "Cloud", icon: Cloud, color: "text-red-500" },
+  { name: "Git", category: "Tools", icon: Code, color: "text-orange-500" },
 ];
 
 export default function App() {
@@ -138,17 +138,17 @@ export default function App() {
       <header className="sticky top-0 z-50 backdrop-blur bg-slate-900/95 border-b border-slate-700">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <a href="#" className="flex items-center gap-3">
-            <img src="/DF5.png" alt="Digital Fusion Systems Logo" className="h-12 w-12" />
+            <img src="/DF.png" alt="Digital Fusion Systems Logo" className="h-12 w-12" />
             <div>
-              <div className="text-2xl font-bold leading-tight text-white">Digital Fusion Systems</div>
+              <div className="text-3xl font-bold leading-tight text-white">Digital Fusion Systems</div>
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-16">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-lg text-slate-200 hover:text-purple-300 transition-colors font-semibold">{n.label}</a>
+              <a key={n.href} href={n.href} className="text-2xl text-slate-200 hover:text-purple-300 transition-colors font-bold">{n.label}</a>
             ))}
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-8 py-3 text-lg font-bold bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transition-all shadow-lg">
+            <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-10 py-4 text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transition-all shadow-lg">
               Get Started
             </a>
           </nav>
@@ -162,9 +162,9 @@ export default function App() {
           <div className="md:hidden border-t border-slate-700 bg-slate-900">
             <div className="px-4 py-3 flex flex-col gap-3">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} className="text-base py-2 text-slate-300 font-medium" onClick={() => setOpen(false)}>{n.label}</a>
+                <a key={n.href} href={n.href} className="text-xl py-2 text-slate-300 font-bold" onClick={() => setOpen(false)}>{n.label}</a>
               ))}
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-base font-medium bg-gradient-to-r from-purple-600 to-blue-500 text-white" onClick={() => setOpen(false)}>
+              <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-xl font-bold bg-gradient-to-r from-purple-600 to-blue-500 text-white" onClick={() => setOpen(false)}>
                 Get Started
               </a>
             </div>
@@ -253,12 +253,8 @@ export default function App() {
                 viewport={{ once: true }}
                 className="bg-slate-700 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-600 hover:border-purple-400"
               >
-                <div className="w-16 h-16 bg-white rounded-xl mx-auto mb-4 flex items-center justify-center p-2">
-                  {tech.logo ? (
-                    <img src={tech.logo} alt={tech.name} className="w-12 h-12 object-contain" />
-                  ) : (
-                    <tech.icon className="w-8 h-8 text-slate-600" />
-                  )}
+                <div className="w-16 h-16 bg-white rounded-xl mx-auto mb-4 flex items-center justify-center">
+                  <tech.icon className={`w-10 h-10 ${tech.color}`} />
                 </div>
                 <h4 className="font-bold text-white text-xl">{tech.name}</h4>
               </motion.div>
