@@ -90,33 +90,23 @@ const industries = [
 const clientLogos = [
   { 
     name: "Microsoft", 
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/microsoft.svg", 
+    logo: "https://img.icons8.com/fluency/48/microsoft.png", 
     sector: "Technology" 
   },
   { 
     name: "Amazon", 
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/amazon.svg", 
+    logo: "https://img.icons8.com/color/48/amazon.png", 
     sector: "Cloud Services" 
   },
   { 
     name: "IBM", 
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/ibm.svg", 
+    logo: "https://img.icons8.com/color/48/ibm.png", 
     sector: "Enterprise" 
   },
   { 
     name: "Oracle", 
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/oracle.svg", 
+    logo: "https://img.icons8.com/color/48/oracle-logo.png", 
     sector: "Database" 
-  },
-  { 
-    name: "Salesforce", 
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/salesforce.svg", 
-    sector: "CRM" 
-  },
-  { 
-    name: "SAP", 
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/sap.svg", 
-    sector: "Enterprise Software" 
   }
 ];
 // Real testimonials from key sectors
@@ -275,7 +265,7 @@ export default function App() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM5QzkyQUMiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSI0Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
-        <div className="relative max-w-7xl mx-auto px-4 py-20 md:py-28">
+        <div className="relative max-w-7xl mx-auto px-4 py-28 md:py-36">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center">
             <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/30 rounded-full px-6 py-2 mb-8">
               <Star className="w-5 h-5 text-yellow-400" />
@@ -311,8 +301,8 @@ export default function App() {
             {stats.map((stat, idx) => (
               <div key={idx} className="text-center">
                 <stat.icon className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
-                <div className="text-sm text-blue-200">{stat.label}</div>
+                <div className="text-4xl md:text-5xl font-black text-white mb-3">{stat.number}</div>
+                <div className="text-base text-blue-200 font-medium">{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -531,7 +521,9 @@ export default function App() {
                 viewport={{ once: true }}
                 className="bg-slate-700 rounded-xl p-8 text-center border border-slate-600 hover:border-purple-400 transition-all"
               >
-                <div className="text-6xl mb-4">{member.image}</div>
+                <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mb-6 mx-auto">
+  <span className="text-white font-bold text-2xl">{member.initials}</span>
+</div>
                 <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
                 <p className="text-purple-400 font-semibold mb-3">{member.title}</p>
                 <p className="text-slate-300 text-sm">{member.credentials}</p>
