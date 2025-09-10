@@ -88,20 +88,21 @@ const industries = [
 
 // Client logos for social proof
 // Client logos for social proof
+// Client logos for social proof
 const clientLogos = [
   { 
     name: "Microsoft", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg", 
     sector: "Technology" 
   },
   { 
     name: "Amazon", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", 
     sector: "Cloud Services" 
   },
   { 
     name: "Google", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg", 
     sector: "Enterprise" 
   },
   { 
