@@ -87,25 +87,26 @@ const industries = [
 ];
 
 // Client logos for social proof
+// Client logos for social proof
 const clientLogos = [
   { 
     name: "Microsoft", 
-    logo: "https://img.icons8.com/fluency/48/microsoft.png", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg", 
     sector: "Technology" 
   },
   { 
     name: "Amazon", 
-    logo: "https://img.icons8.com/color/48/amazon.png", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", 
     sector: "Cloud Services" 
   },
   { 
-    name: "IBM", 
-    logo: "https://img.icons8.com/color/48/ibm.png", 
+    name: "Google", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg", 
     sector: "Enterprise" 
   },
   { 
     name: "Oracle", 
-    logo: "https://img.icons8.com/color/48/oracle-logo.png", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg", 
     sector: "Database" 
   }
 ];
@@ -620,7 +621,7 @@ export default function App() {
                   </div>
                   <div>
                     <h3 className="font-bold text-xl mb-2">Response Time</h3>
-                    <p className="text-blue-100 text-lg">Within 2 hours during business days</p>
+                    <p className="text-blue-100 text-lg">Within 4 hours during business days</p>
                     <p className="text-blue-200 text-sm">Emergency response: 30 minutes</p>
                   </div>
                 </div>
@@ -781,9 +782,7 @@ export default function App() {
               <h4 className="text-white font-semibold mb-4">Contact</h4>
               <ul className="space-y-2 text-sm">
                 <li>info@digitalfusionsystems.com</li>
-                <li>+1 (555) 123-4567</li>
-                <li>24/7 Emergency Support</li>
-                <li>Response time: 2 hours</li>
+                <li>Response time: 4 hours</li>
               </ul>
             </div>
           </div>
