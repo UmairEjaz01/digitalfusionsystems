@@ -89,6 +89,7 @@ const industries = [
 // Client logos for social proof
 // Client logos for social proof
 // Client logos for social proof
+// Client logos for social proof
 const clientLogos = [
   { 
     name: "Microsoft", 
@@ -97,7 +98,7 @@ const clientLogos = [
   },
   { 
     name: "Amazon", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", 
     sector: "Cloud Services" 
   },
   { 
@@ -107,7 +108,7 @@ const clientLogos = [
   },
   { 
     name: "Oracle", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg", 
+    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", 
     sector: "Database" 
   }
 ];
