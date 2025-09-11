@@ -63,12 +63,12 @@ const services = [
     roi: "45% cost savings average"
   },
   { 
-    title: "Cybersecurity", 
-    icon: Shield,
-    description: "Zero security breaches across our 200+ client implementations with government-grade security protocols.",
-    features: ["Security Assessment & Auditing", "Penetration Testing", "Compliance Management", "Incident Response Planning"],
-    deliverables: "SOC 2 compliant security",
-    roi: "Zero breach guarantee"
+    title: "Data Analytics & Engineering", 
+    icon: Database, // or you could use Brain for analytics
+    description: "Transform raw data into actionable insights with our experienced data analysts and engineers who deliver measurable business intelligence.",
+    features: ["Data Pipeline Development", "Business Intelligence Dashboards", "Predictive Analytics", "Data Warehouse Solutions"],
+    deliverables: "Custom analytics solutions",
+    roi: "Data-driven decision making"
   },
 ];
 
@@ -206,7 +206,7 @@ const teamMembers = [
   {
     name: "Sarah Kim",
     title: "Head of AI/ML",
-    credentials: "PhD Computer Science, ex-Google AI researcher",
+    credentials: "Advanced degree in Computer Science, AI specialist",
     initials: "SK"
   },
   {
@@ -671,9 +671,9 @@ React.useEffect(() => {
                     <Globe className="w-7 h-7" />
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-2">Global Reach</h3>
-                    <p className="text-blue-100 text-lg">Serving clients in 25+ countries</p>
-                    <p className="text-blue-200 text-sm">Remote and on-site delivery options</p>
+                    <h3 className="font-bold text-xl mb-2">Australia & Asia-Pacific</h3>
+                    <p className="text-blue-100 text-lg">Serving clients across Australia and regional markets</p>
+                    <p className="text-blue-200 text-sm">Local expertise with remote delivery capabilities</p>
                   </div>
                 </div>
               </div>
@@ -717,7 +717,7 @@ React.useEffect(() => {
                       type="tel"
                       id="phone"
                       name="phone"
-                      placeholder="+61 123 4567 89"
+                      placeholder="+61 123 456 789"
                       className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
                     />
                   </div>
