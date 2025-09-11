@@ -801,7 +801,6 @@ React.useEffect(() => {
             </div>
           </div>
         </div>
-     </div>
       </section>
 
       {/* Footer */}
