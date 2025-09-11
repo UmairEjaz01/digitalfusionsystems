@@ -229,9 +229,12 @@ const teamMembers = [
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
-const [showFloatingCTA, setShowFloatingCTA] = React.useState(false);
+  const [showFloatingCTA, setShowFloatingCTA] = React.useState(false);
+  const [formStatus, setFormStatus] = React.useState(''); // Add this line
+
 
 React.useEffect(() => {
+ 
   const handleScroll = () => {
     // Show floating CTA after scrolling past hero section
     setShowFloatingCTA(window.scrollY > 800);
@@ -240,6 +243,35 @@ React.useEffect(() => {
   window.addEventListener('scroll', handleScroll);
   return () => window.removeEventListener('scroll', handleScroll);
 }, []);
+
+   const handleFormSubmit = async (e) => {
+  e.preventDefault();
+  setFormStatus('loading');
+  
+  const formData = new FormData(e.target);
+  
+  try {
+    const response = await fetch('https://formspree.io/f/mdklbnwr', {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+    
+    if (response.ok) {
+      setFormStatus('success');
+      e.target.reset();
+      setTimeout(() => setFormStatus(''), 5000);
+    } else {
+      setFormStatus('error');
+      setTimeout(() => setFormStatus(''), 5000);
+    }
+  } catch (error) {
+    setFormStatus('error');
+    setTimeout(() => setFormStatus(''), 5000);
+  }
+};
 
   return (
     <div className="min-h-screen bg-slate-900 text-white font-sans">
@@ -698,7 +730,28 @@ React.useEffect(() => {
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
               <h3 className="text-3xl font-bold mb-6">Schedule Your Free Consultation</h3>
               
-              <form action="https://formspree.io/f/mdklbnwr" method="POST" className="space-y-6">
+              {/* Status Messages */}
+{formStatus === 'success' && (
+  <div className="mb-6 p-4 bg-green-500/20 border border-green-400/30 rounded-lg">
+    <div className="flex items-center gap-3">
+      <CheckCircle className="w-5 h-5 text-green-400" />
+      <span className="text-green-400 font-semibold">Message sent successfully!</span>
+    </div>
+    <p className="text-green-100 text-sm mt-2">We'll get back to you within 2 hours during business days.</p>
+  </div>
+)}
+
+{formStatus === 'error' && (
+  <div className="mb-6 p-4 bg-red-500/20 border border-red-400/30 rounded-lg">
+    <div className="flex items-center gap-3">
+      <X className="w-5 h-5 text-red-400" />
+      <span className="text-red-400 font-semibold">Failed to send message</span>
+    </div>
+    <p className="text-red-100 text-sm mt-2">Please try again or email us directly at info@digitalfusionsystems.com</p>
+  </div>
+)}
+
+<form onSubmit={handleFormSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
@@ -780,12 +833,26 @@ React.useEffect(() => {
                 </div>
 
                 <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg"
-                >
-                  <Calendar className="w-5 h-5" />
-                  Schedule Consultation
-                </button>
+  type="submit"
+  disabled={formStatus === 'loading'}
+  className={`w-full ${
+    formStatus === 'loading' 
+      ? 'bg-gray-500 cursor-not-allowed' 
+      : 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600'
+  } text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg`}
+>
+  {formStatus === 'loading' ? (
+    <>
+      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+      Sending...
+    </>
+  ) : (
+    <>
+      <Calendar className="w-5 h-5" />
+      Schedule Consultation
+    </>
+  )}
+</button>
 
                 <div className="text-center pt-4 border-t border-white/20">
                   <p className="text-blue-200 text-sm">
