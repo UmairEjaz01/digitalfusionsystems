@@ -695,11 +695,10 @@ React.useEffect(() => {
             </div>
 
             {/* Right Column - Contact Form */}
-       
             <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
               <h3 className="text-3xl font-bold mb-6">Schedule Your Free Consultation</h3>
               
-              <form action="https://formspree.io/f/mdklbnwr" method="POST" className="space-y-6">
+              <div className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
@@ -711,8 +710,7 @@ React.useEffect(() => {
                       className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
                       required
                     />
-                   </div>   
-                        
+                  </div>
 
                   <div>
                     <label htmlFor="businessEmail" className="block text-sm font-medium mb-2">Business Email *</label>
@@ -725,8 +723,7 @@ React.useEffect(() => {
                       required
                     />
                   </div>
-                        </div>
-                
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -796,7 +793,6 @@ React.useEffect(() => {
                     <br />Expect a response within 2 hours during business days.
                   </p>
                 </div>
-                    </form>
               </div>
             </div>
           </div>
