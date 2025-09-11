@@ -201,25 +201,29 @@ const teamMembers = [
     name: "Alex Johnson",
     title: "CEO & Technical Lead",
     credentials: "15+ years, former Microsoft Azure architect",
-    initials: "AJ"
+    initials: "AJ",
+    image: "/Alex.jpg"
   },
   {
     name: "Sarah Kim",
     title: "Head of AI/ML",
     credentials: "Advanced degree in Computer Science, AI specialist",
-    initials: "SK"
+    initials: "SK",
+    image: "/Sarah.jpg"
   },
   {
     name: "Umair Ejaz",
     title: "Principal Architect/DevOps",
     credentials: "Azure, AWS, GCP, 10+ years",
-    initials: "UE"
+    initials: "UE",
+    image: "/Umair.jpeg"
   },
   {
     name: "Marcus Chen",
     title: "Cloud Solutions Director",
     credentials: "AWS Certified Solutions Architect, 12+ years",
-    initials: "MC"
+    initials: "MC",
+    image: "/Marcus.jpg"
   }
 ];
 
@@ -562,9 +566,17 @@ React.useEffect(() => {
                 viewport={{ once: true }}
                 className="bg-slate-700 rounded-xl p-8 text-center border border-slate-600 hover:border-purple-400 transition-all"
               >
-                <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mb-6 mx-auto">
-  <span className="text-white font-bold text-2xl">{member.initials}</span>
-</div>
+                {member.image ? (
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-24 h-24 rounded-full object-cover mb-6 mx-auto"
+                  />
+                ) : (
+                  <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mb-6 mx-auto">
+                    <span className="text-white font-bold text-2xl">{member.initials}</span>
+                  </div>
+                )}
                 <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
                 <p className="text-purple-400 font-semibold mb-3">{member.title}</p>
                 <p className="text-slate-300 text-sm">{member.credentials}</p>
