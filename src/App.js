@@ -6,8 +6,8 @@ import { ArrowRight, Menu, X, Mail, Globe, Clock, Award, Code, Database, Cloud, 
 const SectionTitle = ({ eyebrow, title, subtitle }) => (
   <div className="text-center mb-20">
     {eyebrow && <p className="text-purple-400 font-bold text-sm mb-6 uppercase tracking-widest">{eyebrow}</p>}
-    <h2 className="text-5xl md:text-6xl font-black text-white mb-8 leading-tight">{title}</h2>
-    <p className="text-xl md:text-2xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">{subtitle}</p>
+    <h2 className="text-6xl md:text-7xl font-black text-white mb-8 leading-tight">{title}</h2>
+    <p className="text-2xl md:text-3xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">{subtitle}</p>
   </div>
 );
 
@@ -315,18 +315,21 @@ React.useEffect(() => {
               <span className="text-sm font-semibold">Trusted by 200+ Enterprise Clients</span>
             </div>
             <h1 className="text-6xl md:text-8xl font-black tracking-tight leading-[0.9] mb-8">
-              Reduce Costs by 30%<br />
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">In 8-12 Weeks</span>
-            </h1>
+              Transform Your Business<br />
+              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
+                With Proven Results
+  </span>
+</h1>
             <p className="max-w-3xl mx-auto text-xl md:text-2xl text-blue-100 leading-relaxed mb-8">
               We help banks, healthcare systems, and government agencies modernize legacy systems with zero downtime. 
               <strong className="text-white"> ROI guaranteed or your money back.</strong>
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-bold bg-purple-600 text-white hover:bg-purple-700 transition-all shadow-lg">
-                <Calendar className="w-5 h-5" />
-                Schedule Free Assessment
-              </a>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                      <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-bold bg-purple-600 text-white hover:bg-purple-700 transition-all shadow-lg">
+  <Calendar className="w-5 h-5" />
+  Schedule Free Assessment
+</a>
+
               <a href="#results" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-bold border-2 border-white/30 text-white hover:bg-white/10 transition-all">
                 View Case Studies
                 <ArrowRight className="w-5 h-5" />
@@ -483,8 +486,8 @@ React.useEffect(() => {
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mb-6">
                   <service.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">{service.title}</h3>
-                <p className="text-slate-300 mb-6 leading-relaxed text-base">{service.description}</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{service.title}</h3>
+                <p className="text-lg md:text-xl text-slate-300 mb-6 leading-relaxed">{service.description}</p>
                 
                 <div className="space-y-4 mb-6">
                   <ul className="space-y-3">
@@ -641,7 +644,7 @@ React.useEffect(() => {
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Left Column - Contact Info */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Business?</h2>
+              <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to Transform Your Business?</h2>
               <p className="text-blue-100 mb-8 text-xl leading-relaxed">
                 Join 200+ enterprise clients who have achieved measurable ROI through our proven digital transformation approach.
               </p>
