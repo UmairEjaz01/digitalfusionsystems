@@ -224,6 +224,13 @@ const teamMembers = [
     credentials: "AWS Certified Solutions Architect, 12+ years",
     initials: "MC",
     image: "/Marcus.jpg"
+  },
+   {
+    name: "Mohammed Al-shameri",
+    title: "Principal DevOps Engineer",
+    credentials: "Professional AWS certified, 7+ years",
+    initials: "MA",
+    image: "/Shameri.jpg"
   }
 ];
 
