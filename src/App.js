@@ -1,17 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Menu, X, Mail, Globe, Clock, Award, Code, Database, Cloud, Shield, Smartphone, Zap, Brain, Settings, Server, Layers, CheckCircle, Users, TrendingUp, Star, Phone, Upload, Calendar, DollarSign } from "lucide-react";
+import { ArrowRight, Menu, X, Mail, Globe, Clock, Award, Database, Cloud, Shield, Zap, Brain, Server, Layers, CheckCircle, Users, TrendingUp, Star, Calendar, ChevronDown } from "lucide-react";
 
-// Component for section titles
+// Section title component
 const SectionTitle = ({ eyebrow, title, subtitle }) => (
-  <div className="text-center mb-20">
-    {eyebrow && <p className="text-purple-400 font-bold text-sm mb-6 uppercase tracking-widest">{eyebrow}</p>}
-    <h2 className="text-6xl md:text-7xl font-black text-white mb-8 leading-tight">{title}</h2>
-    <p className="text-2xl md:text-3xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-light">{subtitle}</p>
+  <div className="text-center mb-16">
+    {eyebrow && (
+      <p className="text-brand-teal font-bold text-xs mb-4 uppercase tracking-widest font-inter">
+        {eyebrow}
+      </p>
+    )}
+    <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-5 leading-tight font-montserrat">
+      {title}
+    </h2>
+    <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed font-inter">
+      {subtitle}
+    </p>
   </div>
 );
 
-// Navigation data
 const nav = [
   { label: "Services", href: "#services" },
   { label: "Industries", href: "#industries" },
@@ -20,127 +27,100 @@ const nav = [
   { label: "Contact", href: "#contact" },
 ];
 
-// Services data with specific metrics and ROI
 const services = [
-  { 
-    title: "Digital Transformation", 
+  {
+    title: "Digital Transformation",
     icon: Zap,
     description: "We've helped 50+ companies reduce operational costs by 30% through custom automation and modernization strategies.",
     features: ["Legacy System Modernization", "Process Automation & Optimization", "Digital Strategy Consulting", "Change Management Support"],
     deliverables: "8-12 week implementation",
-    roi: "30% cost reduction guaranteed"
+    roi: "30% cost reduction guaranteed",
   },
-  { 
-    title: "Enterprise Applications", 
+  {
+    title: "Enterprise Applications",
     icon: Layers,
     description: "Our React applications handle 1M+ daily users for enterprise clients in banking and healthcare sectors.",
     features: ["Custom Enterprise Software", "ERP & CRM Solutions", "API Integration & Development", "Mobile Enterprise Apps"],
     deliverables: "Scalable, secure applications",
-    roi: "99.9% uptime SLA"
+    roi: "99.9% uptime SLA",
   },
-  { 
-    title: "AI & Machine Learning", 
+  {
+    title: "AI & Machine Learning",
     icon: Brain,
     description: "Intelligent solutions that have helped healthcare clients improve diagnostic accuracy by 40% and reduce processing time by 60%.",
     features: ["Predictive Analytics", "Natural Language Processing", "Computer Vision Solutions", "Intelligent Automation"],
     deliverables: "Custom AI models",
-    roi: "40% accuracy improvement"
+    roi: "40% accuracy improvement",
   },
-  { 
-    title: "DevOps & Infrastructure", 
+  {
+    title: "DevOps & Infrastructure",
     icon: Server,
     description: "Our DevOps solutions have reduced deployment time from hours to minutes for major banking institutions.",
     features: ["CI/CD Pipeline Setup", "Infrastructure as Code", "Container Orchestration", "Monitoring & Logging"],
     deliverables: "90% faster deployments",
-    roi: "24/7 monitoring included"
+    roi: "24/7 monitoring included",
   },
-  { 
-    title: "Cloud Solutions", 
+  {
+    title: "Cloud Solutions",
     icon: Cloud,
     description: "Successfully migrated 100+ applications to cloud platforms, reducing infrastructure costs by 45% on average.",
     features: ["Cloud Migration Strategy", "Multi-Cloud Architecture", "Serverless Computing", "Cloud Security & Compliance"],
     deliverables: "Complete cloud migration",
-    roi: "45% cost savings average"
+    roi: "45% cost savings average",
   },
-  { 
-    title: "Data Analytics & Engineering", 
-    icon: Database, // or you could use Brain for analytics
+  {
+    title: "Data Analytics & Engineering",
+    icon: Database,
     description: "Transform raw data into actionable insights with our experienced data analysts and engineers who deliver measurable business intelligence.",
     features: ["Data Pipeline Development", "Business Intelligence Dashboards", "Predictive Analytics", "Data Warehouse Solutions"],
     deliverables: "Custom analytics solutions",
-    roi: "Data-driven decision making"
+    roi: "Data-driven decision making",
   },
 ];
 
-// Industries with project counts - highlighting key sectors
 const industries = [
   { name: "Banking & Fintech", projects: "25+ projects", highlight: true },
   { name: "Healthcare & Pharmaceuticals", projects: "30+ projects", highlight: true },
   { name: "Public Sector", projects: "15+ projects", highlight: true },
   { name: "Travel & Hospitality", projects: "20+ projects" },
-  { name: "Telecommunication", projects: "18+ projects" }, 
+  { name: "Telecommunication", projects: "18+ projects" },
   { name: "Oil, Gas, and Energy", projects: "12+ projects" },
   { name: "E-commerce", projects: "35+ projects" },
   { name: "Retail & CPG", projects: "22+ projects" },
   { name: "Startups", projects: "40+ projects" },
-  { name: "Gaming", projects: "8+ projects" }
+  { name: "Gaming", projects: "8+ projects" },
 ];
 
-// Client logos for social proof
-// Client logos for social proof
-// Client logos for social proof
-// Client logos for social proof
 const clientLogos = [
-  { 
-    name: "Microsoft", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg", 
-    sector: "Technology" 
-  },
-  { 
-    name: "Amazon", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", 
-    sector: "Cloud Services" 
-  },
-  { 
-    name: "Google", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg", 
-    sector: "Enterprise" 
-  },
-  { 
-    name: "Oracle", 
-    logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg", 
-    sector: "Database" 
-  }
+  { name: "Microsoft Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+  { name: "Amazon AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" },
+  { name: "Google Cloud", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+  { name: "Oracle", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg" },
+  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+  { name: "Kubernetes", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
 ];
-// Real testimonials from key sectors
+
 const testimonials = [
   {
     quote: "Digital Fusion Systems transformed our legacy banking infrastructure, reducing transaction processing time by 70% and saving us $2M annually.",
     author: "Sarah Chen",
     title: "CTO, Regional Bank",
-    company: "Major Banking Institution",
-    sector: "Banking",
-    result: "$2M annual savings"
+    result: "$2M annual savings",
   },
   {
     quote: "Their AI solution improved our diagnostic accuracy by 40% and reduced patient wait times significantly. Outstanding technical expertise.",
     author: "Dr. Michael Rodriguez",
     title: "Chief Medical Officer",
-    company: "Regional Healthcare System",
-    sector: "Healthcare",
-    result: "40% accuracy improvement"
+    result: "40% accuracy improvement",
   },
   {
     quote: "The cloud migration was seamless. We achieved 99.9% uptime and reduced our infrastructure costs by 50% within six months.",
     author: "James Thompson",
-    title: "IT Director",
-    company: "Government Agency",
-    sector: "Public Sector",
-    result: "50% cost reduction"
-  }
+    title: "IT Director, Government Agency",
+    result: "50% cost reduction",
+  },
 ];
 
-// Detailed case studies with metrics
 const caseStudies = [
   {
     title: "Banking Digital Transformation",
@@ -149,7 +129,7 @@ const caseStudies = [
     solution: "Complete digital transformation with React-based customer portal and AI-powered fraud detection",
     results: ["70% faster transaction processing", "$2M annual cost savings", "Zero security incidents"],
     timeline: "12 weeks",
-    icon: "🏦"
+    icon: "🏦",
   },
   {
     title: "Healthcare AI Implementation",
@@ -158,7 +138,7 @@ const caseStudies = [
     solution: "Custom AI/ML models for medical imaging and patient triage automation",
     results: ["40% improvement in diagnostic accuracy", "60% reduction in processing time", "500+ patients served daily"],
     timeline: "16 weeks",
-    icon: "🏥"
+    icon: "🏥",
   },
   {
     title: "Government Cloud Migration",
@@ -167,11 +147,10 @@ const caseStudies = [
     solution: "Multi-cloud architecture with government-grade security and compliance",
     results: ["99.9% uptime achieved", "50% infrastructure cost reduction", "SOC 2 compliance maintained"],
     timeline: "20 weeks",
-    icon: "🏛️"
-  }
+    icon: "🏛️",
+  },
 ];
 
-// Technology stack
 const technologies = [
   { name: "React", category: "Frontend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { name: "Angular", category: "Frontend", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
@@ -187,237 +166,230 @@ const technologies = [
   { name: "Git", category: "Tools", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
 ];
 
-// Key statistics for credibility
 const stats = [
-  { number: "200+", label: "Projects Delivered", icon: CheckCircle },
-  { number: "50+", label: "Enterprise Clients", icon: Users },
-  { number: "99.9%", label: "Uptime SLA", icon: TrendingUp },
-  { number: "4.9/5", label: "Client Satisfaction", icon: Star }
+  { number: "200+", label: "Projects Delivered" },
+  { number: "50+", label: "Enterprise Clients" },
+  { number: "99.9%", label: "Uptime SLA" },
+  { number: "4.9/5", label: "Client Satisfaction" },
 ];
 
-// Team members with credentials
 const teamMembers = [
-{
+  {
     name: "Steve Masood",
-    title: "Senior Data, BI & Analytics Consultant & Advisor | Senior BusinessAnalyst / BI Leader",
-    credentials: "Microsoft Power BI • Business Intelligence • Business Analysis • QlikView • Snowflake",
-    initials: "SM",
-    image: "/Umair.jpeg"
+    title: "Principal Architect / DevOps",
+    credentials: "Azure, AWS, GCP — 10+ years",
+    image: "/Steve.png",
   },
   {
     name: "Marcus Ejaz",
-    title: "Principal DevOps Engineer & Cloud Solutions Architect | Multi-Cloud Infrastructure | Enterprise Migrations | Azure & AWS Expert | NV1",
-    credentials: "Azure • AWS • GCP • 10+ years",
-    initials: "ME",
-    image: "/Umair.jpeg"
+    title: "Principal Architect / DevOps",
+    credentials: "Azure, AWS, GCP — 10+ years",
+    image: "/Marcus.jpeg",
   },
-
-   {
+  {
     name: "Mo Shameri",
     title: "Principal DevOps Engineer",
-    credentials: "Professional AWS certified • 7+ years Amazon Web Services (AWS) • Python (Programming Language) • Kubernetes • Azure DevOps Server • Terraform",
-    initials: "MS",
-    image: "/Shameri.jpg"
-  }
+    credentials: "AWS Certified — 7+ years",
+    image: "/Shameri.jpg",
+  },
 ];
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
   const [showFloatingCTA, setShowFloatingCTA] = React.useState(false);
-  const [formStatus, setFormStatus] = React.useState(''); // Add this line
+  const [formStatus, setFormStatus] = React.useState('');
 
+  React.useEffect(() => {
+    const handleScroll = () => setShowFloatingCTA(window.scrollY > 800);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-React.useEffect(() => {
- 
-  const handleScroll = () => {
-    // Show floating CTA after scrolling past hero section
-    setShowFloatingCTA(window.scrollY > 800);
-  };
-
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
-
-   const handleFormSubmit = async (e) => {
-  e.preventDefault();
-  setFormStatus('loading');
-  
-  const formData = new FormData(e.target);
-  
-  try {
-    const response = await fetch('https://formspree.io/f/mdklbnwr', {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    setFormStatus('loading');
+    const formData = new FormData(e.target);
+    try {
+      const response = await fetch('https://formspree.io/f/mdklbnwr', {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' },
+      });
+      if (response.ok) {
+        setFormStatus('success');
+        e.target.reset();
+        setTimeout(() => setFormStatus(''), 5000);
+      } else {
+        setFormStatus('error');
+        setTimeout(() => setFormStatus(''), 5000);
       }
-    });
-    
-    if (response.ok) {
-      setFormStatus('success');
-      e.target.reset();
-      setTimeout(() => setFormStatus(''), 5000);
-    } else {
+    } catch {
       setFormStatus('error');
       setTimeout(() => setFormStatus(''), 5000);
     }
-  } catch (error) {
-    setFormStatus('error');
-    setTimeout(() => setFormStatus(''), 5000);
-  }
-};
+  };
 
   return (
-    <div className="min-h-screen bg-slate-900 text-white font-sans">
-   {/* Floating CTA Button */}
-{showFloatingCTA && (
-  <motion.div
-    initial={{ opacity: 0, x: 50 }}
-    animate={{ opacity: 1, x: 0 }}
-    exit={{ opacity: 0, x: 50 }}
-    className="fixed right-0 top-1/2 transform -translate-y-1/2 z-50"
-  >
-    
-      <a href="#contact"
-      className="bg-gradient-to-r from-purple-600 to-blue-500 hover:from-purple-700 hover:to-blue-600 text-white px-4 py-16 rounded-l-2xl shadow-2xl transition-all duration-300 flex items-center justify-center group"
-      style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
-    >
-      <span className="font-bold text-sm tracking-wider group-hover:tracking-widest transition-all">
-        Let's Talk Business
-      </span>
-    </a>
-  </motion.div>
-)}
-      {/* Header */}
-      <header className="sticky top-0 z-50 backdrop-blur bg-slate-900/95 border-b border-slate-700">
-        <div className="max-w-full mx-auto px-6 md:px-12 py-4 flex items-center justify-between gap-4">
-          <a href="#" className="flex items-center gap-3">
-            <img src="/DF5.png" alt="Digital Fusion Systems Logo" className="h-12 w-12" />
-            <div>
-              <div className="text-3xl font-bold leading-tight text-white">Digital Fusion Systems</div>
-            </div>
+    <div className="min-h-screen bg-white text-gray-900 font-inter">
+
+      {/* Floating CTA */}
+      {showFloatingCTA && (
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="fixed right-0 top-1/2 -translate-y-1/2 z-50"
+        >
+          <a
+            href="#contact"
+            className="bg-brand-teal hover:bg-brand-teal-dark text-white px-4 py-14 rounded-l-xl shadow-xl transition-colors flex items-center justify-center"
+            style={{ writingMode: 'vertical-rl', textOrientation: 'mixed' }}
+          >
+            <span className="font-bold text-xs tracking-widest font-inter">Let's Talk Business</span>
+          </a>
+        </motion.div>
+      )}
+
+      {/* ── HEADER ── */}
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+        <div className="max-w-full mx-auto px-6 md:px-12 py-3 flex items-center">
+
+          {/* Brand */}
+          <a href="#" className="flex items-center gap-3 flex-shrink-0">
+            <img src="/DF5.png" alt="Digital Fusion Systems" className="h-12 w-12 object-contain mt-2" />
+            <span className="text-2xl font-black text-brand-teal font-montserrat tracking-tight">
+              Digital Fusion Systems
+            </span>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          {/* Nav — centered */}
+          <nav className="hidden md:flex items-center gap-10 flex-1 justify-center">
             {nav.map((n) => (
-              <a key={n.href} href={n.href} className="text-lg text-slate-200 hover:text-purple-300 transition-colors font-semibold">{n.label}</a>
+              <a
+                key={n.href}
+                href={n.href}
+                className="text-base font-semibold text-brand-teal hover:text-brand-teal-dark transition-colors font-inter"
+              >
+                {n.label}
+              </a>
             ))}
-            <div className="flex gap-3">
-              <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-base font-bold bg-purple-600 text-white hover:bg-purple-700 transition-all">
-                Free Assessment
-              </a>
-              <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-base font-bold bg-gradient-to-r from-purple-600 to-blue-500 text-white hover:from-purple-700 hover:to-blue-600 transition-all shadow-lg">
-                Schedule Call
-              </a>
-            </div>
           </nav>
 
-          <button className="md:hidden p-2 rounded-lg border border-slate-600" onClick={() => setOpen(!open)} aria-label="Toggle Menu">
-            {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {/* Right CTAs */}
+          <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+            <a href="#contact" className="px-5 py-2.5 bg-brand-teal text-white text-sm font-bold rounded-full hover:bg-brand-teal-dark transition-colors font-inter">
+              Free Assessment
+            </a>
+            <a href="#contact" className="px-5 py-2.5 border-2 border-brand-teal text-brand-teal text-sm font-bold rounded-full hover:bg-brand-teal hover:text-white transition-colors font-inter">
+              Let's Talk Business
+            </a>
+          </div>
+
+          {/* Mobile hamburger */}
+          <button className="md:hidden ml-auto p-2" onClick={() => setOpen(!open)} aria-label="Toggle Menu">
+            {open ? <X className="w-5 h-5 text-brand-teal" /> : <Menu className="w-5 h-5 text-brand-teal" />}
           </button>
         </div>
 
         {open && (
-          <div className="md:hidden border-t border-slate-700 bg-slate-900">
-            <div className="px-4 py-3 flex flex-col gap-3">
+          <div className="md:hidden border-t border-gray-200 bg-white">
+            <div className="px-6 py-4 flex flex-col gap-4">
               {nav.map((n) => (
-                <a key={n.href} href={n.href} className="text-lg py-2 text-slate-300 font-semibold" onClick={() => setOpen(false)}>{n.label}</a>
+                <a key={n.href} href={n.href} className="text-sm text-brand-teal font-bold py-1 font-inter" onClick={() => setOpen(false)}>
+                  {n.label}
+                </a>
               ))}
-              <a href="#contact" className="inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-lg font-bold bg-gradient-to-r from-purple-600 to-blue-500 text-white" onClick={() => setOpen(false)}>
-                Get Started
+              <a href="#contact" className="text-center px-5 py-2.5 bg-brand-teal text-white text-sm font-bold rounded-full font-inter" onClick={() => setOpen(false)}>
+                Free Assessment
+              </a>
+              <a href="#contact" className="text-center px-5 py-2.5 border-2 border-brand-teal text-brand-teal text-sm font-bold rounded-full font-inter" onClick={() => setOpen(false)}>
+                Let's Talk Business
               </a>
             </div>
           </div>
         )}
       </header>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiM5QzkyQUMiIGZpbGwtb3BhY2l0eT0iMC4xIj48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSI0Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-40"></div>
-       <div className="relative max-w-full mx-auto px-6 md:px-12 py-28 md:py-36">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-center">
-            <div className="inline-flex items-center gap-2 bg-purple-500/20 border border-purple-400/30 rounded-full px-6 py-2 mb-8">
-              <Star className="w-5 h-5 text-yellow-400" />
-              <span className="text-sm font-semibold">Trusted by 200+ Enterprise Clients</span>
-            </div>
-            <h1 className="text-6xl md:text-8xl font-black tracking-tight leading-[0.9] mb-8">
-              Transform Your Business<br />
-              <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                With Proven Results
-  </span>
-</h1>
-            <p className="max-w-3xl mx-auto text-xl md:text-2xl text-blue-100 leading-relaxed mb-8">
-              We help banks, healthcare systems, and government agencies modernize legacy systems with zero downtime. 
-              <strong className="text-white"> ROI guaranteed or your money back.</strong>
-            </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                      <a href="#contact" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-bold bg-purple-600 text-white hover:bg-purple-700 transition-all shadow-lg">
-  <Calendar className="w-5 h-5" />
-  Schedule Free Assessment
-</a>
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden bg-gray-950 text-white">
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: 'radial-gradient(circle, rgba(14,186,177,0.6) 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-gray-950 to-transparent" />
 
-              <a href="#results" className="inline-flex items-center gap-2 rounded-lg px-8 py-4 text-lg font-bold border-2 border-white/30 text-white hover:bg-white/10 transition-all">
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 py-32 md:py-44">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+            className="text-center"
+          >
+            <div className="inline-flex items-center gap-2 bg-brand-teal/20 border border-brand-teal/30 rounded-full px-5 py-2 mb-8">
+              <Star className="w-4 h-4 text-brand-teal" />
+              <span className="text-brand-teal text-sm font-semibold font-inter">Trusted by 200+ Enterprise Clients</span>
+            </div>
+
+            <h1 className="text-5xl md:text-7xl font-black leading-tight mb-8 font-montserrat">
+              Building at the<br />
+              <span className="text-brand-teal">Speed of Innovation</span>
+            </h1>
+
+            <p className="max-w-2xl mx-auto text-lg text-gray-300 mb-10 leading-relaxed font-inter">
+              We help banks, healthcare systems, and government agencies modernize legacy systems with zero downtime.{" "}
+              <strong className="text-white">ROI guaranteed or your money back.</strong>
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="#contact" className="inline-flex items-center gap-2 px-8 py-4 bg-brand-teal text-white font-bold rounded hover:bg-brand-teal-dark transition-colors font-inter">
+                <Calendar className="w-5 h-5" />
+                Schedule Free Assessment
+              </a>
+              <a href="#results" className="inline-flex items-center gap-2 px-8 py-4 border border-white/25 text-white font-bold rounded hover:bg-white/10 transition-colors font-inter">
                 View Case Studies
                 <ArrowRight className="w-5 h-5" />
               </a>
             </div>
           </motion.div>
 
-          {/* Stats Bar */}
-          <motion.div 
-            initial={{ opacity: 0, y: 40 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20"
+            className="mt-24 grid grid-cols-2 md:grid-cols-4 border-t border-white/10 pt-16"
           >
             {stats.map((stat, idx) => (
-              <div key={idx} className="text-center">
-                <stat.icon className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                <div className="text-4xl md:text-5xl font-black text-white mb-3">{stat.number}</div>
-                <div className="text-base text-blue-200 font-medium">{stat.label}</div>
+              <div key={idx} className={`text-center py-4 ${idx < stats.length - 1 ? 'border-r border-white/10' : ''}`}>
+                <div className="text-4xl md:text-5xl font-black text-brand-teal mb-2 font-montserrat">{stat.number}</div>
+                <div className="text-gray-400 text-sm font-medium font-inter">{stat.label}</div>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
-     {/* Client Logos Section */}
-      <section className="py-16 bg-slate-800">
-        <div className="max-w-full mx-auto px-6 md:px-12">
-          <div className="text-center mb-12">
-            <p className="text-slate-400 text-lg mb-6">Trusted by leading organizations across industries</p>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-              {clientLogos.map((client, idx) => (
-                <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-center gap-3 bg-slate-700 px-6 py-3 rounded-lg border border-slate-600"
-              >
-                <div className="w-8 h-8 flex items-center justify-center">
-                  <img src={client.logo} alt={client.name} className="w-8 h-8 object-contain" />
-                </div>
-                <div>
-                  <div className="text-white font-semibold">{client.name}</div>
-                  <div className="text-slate-400 text-sm">{client.sector}</div>
-                </div>
-              </motion.div>
-              ))}
+      {/* ── CLIENT LOGOS MARQUEE ── */}
+      <section className="py-14 bg-gray-50 border-b border-gray-100 overflow-hidden">
+        <p className="text-xs text-gray-400 text-center uppercase tracking-widest font-semibold font-inter mb-8">
+          Trusted by leading organizations
+        </p>
+        <div className="flex gap-16 animate-marquee whitespace-nowrap">
+          {[...clientLogos, ...clientLogos].map((client, idx) => (
+            <div key={idx} className="flex items-center gap-3 flex-shrink-0 opacity-50 hover:opacity-100 transition-opacity">
+              <img src={client.logo} alt={client.name} className="h-8 w-auto object-contain" />
+              <span className="text-gray-700 font-semibold text-sm font-inter">{client.name}</span>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* Results/Case Studies Section */}
-      <section id="results" className="py-20 md:py-28 bg-slate-900">
-        <div className="max-w-full mx-auto px-6 md:px-12">
-          <SectionTitle 
-            title="Proven Results" 
-            subtitle="Real outcomes from our enterprise clients across banking, healthcare, and government sectors." 
-          />
-          
+      {/* ── CASE STUDIES ── */}
+      <section id="results" className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionTitle eyebrow="Case Studies" title="Proven Results" subtitle="Real outcomes from our enterprise clients across banking, healthcare, and government sectors." />
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
             {caseStudies.map((study, idx) => (
               <motion.div
@@ -426,68 +398,64 @@ React.useEffect(() => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-gradient-to-br from-slate-800 to-slate-700 rounded-xl p-8 border border-slate-600 hover:border-purple-400 transition-all duration-300"
+                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-brand-teal hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="text-4xl">{study.icon}</span>
+                  <span className="text-3xl">{study.icon}</span>
                   <div>
-                    <h3 className="text-xl font-bold text-white">{study.title}</h3>
-                    <p className="text-purple-400 font-semibold">{study.sector}</p>
+                    <h3 className="text-lg font-bold text-gray-900 font-montserrat">{study.title}</h3>
+                    <p className="text-brand-teal text-sm font-semibold font-inter">{study.sector}</p>
                   </div>
                 </div>
-                
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-semibold text-slate-300 mb-2">Challenge:</h4>
-                    <p className="text-slate-400 text-sm">{study.challenge}</p>
+                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 font-inter">Challenge</h4>
+                    <p className="text-gray-600 text-sm font-inter">{study.challenge}</p>
                   </div>
-                  
                   <div>
-                    <h4 className="font-semibold text-slate-300 mb-2">Solution:</h4>
-                    <p className="text-slate-400 text-sm">{study.solution}</p>
+                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-1 font-inter">Solution</h4>
+                    <p className="text-gray-600 text-sm font-inter">{study.solution}</p>
                   </div>
-                  
                   <div>
-                    <h4 className="font-semibold text-slate-300 mb-2">Results:</h4>
-                    <ul className="space-y-2">
-                      {study.results.map((result, resultIdx) => (
-                        <li key={resultIdx} className="flex items-center text-sm text-green-400">
-                          <CheckCircle className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2 font-inter">Results</h4>
+                    <ul className="space-y-1.5">
+                      {study.results.map((result, i) => (
+                        <li key={i} className="flex items-center text-sm text-gray-700 font-inter">
+                          <CheckCircle className="w-4 h-4 mr-2 text-brand-teal flex-shrink-0" />
                           {result}
                         </li>
                       ))}
                     </ul>
                   </div>
-                  
-                  <div className="mt-4 pt-4 border-t border-slate-600">
-                    <span className="text-purple-400 font-semibold">Timeline: {study.timeline}</span>
+                  <div className="pt-4 border-t border-gray-100 flex items-center justify-between">
+                    <span className="text-xs text-gray-500 font-inter">Timeline</span>
+                    <span className="text-brand-teal font-bold text-sm font-inter">{study.timeline}</span>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Testimonials */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, idx) => (
+            {testimonials.map((t, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-white/5 backdrop-blur-lg rounded-xl p-6 border border-white/10"
+                className="bg-gray-50 rounded-xl p-6 border border-gray-100"
               >
-                <div className="flex items-center gap-1 mb-4">
+                <div className="flex items-center gap-0.5 mb-4">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-4 h-4 text-amber-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-slate-300 mb-6 italic">"{testimonial.quote}"</p>
-                <div className="border-t border-slate-600 pt-4">
-                  <div className="font-semibold text-white">{testimonial.author}</div>
-                  <div className="text-slate-400 text-sm">{testimonial.title}</div>
-                  <div className="text-purple-400 text-sm font-semibold mt-1">{testimonial.result}</div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-5 italic font-inter">"{t.quote}"</p>
+                <div className="border-t border-gray-200 pt-4">
+                  <div className="font-bold text-gray-900 text-sm font-inter">{t.author}</div>
+                  <div className="text-gray-500 text-xs font-inter">{t.title}</div>
+                  <div className="text-brand-teal text-xs font-bold mt-1 font-inter">{t.result}</div>
                 </div>
               </motion.div>
             ))}
@@ -495,96 +463,99 @@ React.useEffect(() => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 md:py-28 bg-slate-800">
-        <div className="max-w-full mx-auto px-6 md:px-12">
+      {/* ── SERVICES ── */}
+      <section id="services" className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <SectionTitle eyebrow="Services" title="Enterprise Solutions That Deliver" subtitle="Proven methodologies with guaranteed ROI and measurable outcomes." />
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, idx) => (
-              <motion.div 
-                key={idx} 
-                initial={{ opacity: 0, y: 20 }} 
-                whileInView={{ opacity: 1, y: 0 }} 
-                transition={{ duration: 0.4, delay: idx * 0.1 }} 
-                viewport={{ once: true }} 
-                className="bg-slate-700 rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-600 hover:border-purple-400"
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: idx * 0.08 }}
+                viewport={{ once: true }}
+                className="bg-white rounded-xl p-8 border border-gray-200 hover:border-brand-teal hover:shadow-lg transition-all duration-300 group"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center mb-6">
-                  <service.icon className="w-8 h-8 text-white" />
+                <div className="w-12 h-12 bg-brand-teal/10 rounded-lg flex items-center justify-center mb-5 group-hover:bg-brand-teal transition-colors duration-300">
+                  <service.icon className="w-6 h-6 text-brand-teal group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{service.title}</h3>
-                <p className="text-lg md:text-xl text-slate-300 mb-6 leading-relaxed">{service.description}</p>
-                
-                <div className="space-y-4 mb-6">
-                  <ul className="space-y-3">
-                    {service.features.map((feature, featureIdx) => (
-                      <li key={featureIdx} className="flex items-center text-base text-slate-300">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full mr-4"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="border-t border-slate-600 pt-6 space-y-3">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 font-montserrat">{service.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed mb-5 font-inter">{service.description}</p>
+                <ul className="space-y-2 mb-6">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="flex items-center text-sm text-gray-600 font-inter">
+                      <div className="w-1.5 h-1.5 bg-brand-teal rounded-full mr-3 flex-shrink-0" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <div className="border-t border-gray-100 pt-5 space-y-2">
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-400 text-sm">Delivery:</span>
-                    <span className="text-purple-400 font-semibold text-sm">{service.deliverables}</span>
+                    <span className="text-xs text-gray-400 font-inter">Delivery</span>
+                    <span className="text-brand-teal font-semibold text-xs font-inter">{service.deliverables}</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-slate-400 text-sm">ROI:</span>
-                    <span className="text-green-400 font-semibold text-sm">{service.roi}</span>
+                    <span className="text-xs text-gray-400 font-inter">ROI</span>
+                    <span className="text-emerald-600 font-semibold text-xs font-inter">{service.roi}</span>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
-            <div className="inline-flex items-center gap-2 bg-green-500/20 border border-green-400/30 rounded-full px-6 py-3">
-              <Shield className="w-5 h-5 text-green-400" />
-              <span className="text-green-400 font-semibold">ROI Guarantee or Your Money Back</span>
+            <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-full px-6 py-3">
+              <Shield className="w-4 h-4 text-emerald-600" />
+              <span className="text-emerald-700 font-semibold text-sm font-inter">ROI Guarantee or Your Money Back</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Industries Section */}
-      <section id="industries" className="py-20 md:py-28 bg-slate-900">
-        <div className="max-w-full mx-auto px-6 md:px-12">
-          <SectionTitle title="Industries We Serve" subtitle="Specialized expertise across sectors with deep domain knowledge and compliance requirements." />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      {/* ── INDUSTRIES ── */}
+      <section id="industries" className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionTitle eyebrow="Industries" title="Industries We Serve" subtitle="Specialized expertise across sectors with deep domain knowledge and compliance requirements." />
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {industries.map((industry, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                transition={{ duration: 0.3, delay: idx * 0.04 }}
                 viewport={{ once: true }}
-                className={`relative p-6 rounded-xl text-center transition-all duration-300 cursor-pointer ${
-                  industry.highlight 
-                    ? 'bg-gradient-to-br from-purple-600/20 to-blue-600/20 border-2 border-purple-400 hover:border-purple-300' 
-                    : 'bg-slate-800 border border-slate-600 hover:border-purple-400'
+                className={`relative p-5 rounded-xl text-center cursor-pointer transition-all duration-300 group ${
+                  industry.highlight
+                    ? 'bg-brand-teal/5 border-2 border-brand-teal hover:bg-brand-teal'
+                    : 'bg-gray-50 border border-gray-200 hover:border-brand-teal hover:bg-brand-teal/5'
                 }`}
               >
                 {industry.highlight && (
-                  <div className="absolute -top-2 -right-2 bg-purple-500 text-white text-xs px-2 py-1 rounded-full font-bold">
+                  <div className="absolute -top-2 -right-2 bg-brand-teal text-white text-xs px-2 py-0.5 rounded-full font-bold font-inter">
                     Featured
                   </div>
                 )}
-                <h3 className="text-lg font-semibold text-white mb-2">{industry.name}</h3>
-                <p className="text-purple-400 text-sm font-medium">{industry.projects}</p>
+                <h3 className={`text-sm font-bold mb-1.5 font-inter transition-colors ${industry.highlight ? 'text-gray-900 group-hover:text-white' : 'text-gray-800'}`}>
+                  {industry.name}
+                </h3>
+                <p className={`text-xs font-semibold font-inter transition-colors ${industry.highlight ? 'text-brand-teal group-hover:text-white/80' : 'text-gray-400'}`}>
+                  {industry.projects}
+                </p>
+                <ArrowRight className={`w-4 h-4 mx-auto mt-2 transition-all ${industry.highlight ? 'text-brand-teal group-hover:text-white' : 'text-gray-300 group-hover:text-brand-teal'}`} />
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* About/Team Section */}
-      <section id="about" className="py-20 md:py-28 bg-slate-800">
-        <div className="max-w-full mx-auto px-6 md:px-12">
-          <SectionTitle title="Expert Team" subtitle="Industry veterans with proven track records at Fortune 500 companies." />
-          
+      {/* ── TEAM ── */}
+      <section id="about" className="py-20 md:py-28 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionTitle eyebrow="Our Team" title="Expert Team" subtitle="Industry veterans with proven track records at Fortune 500 companies." />
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {teamMembers.map((member, idx) => (
               <motion.div
@@ -593,326 +564,223 @@ React.useEffect(() => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-slate-700 rounded-xl p-8 text-center border border-slate-600 hover:border-purple-400 transition-all"
+                className="bg-white rounded-xl p-8 text-center border border-gray-200 hover:border-brand-teal hover:shadow-lg transition-all duration-300"
               >
                 {member.image ? (
-                  <img 
-                    src={member.image} 
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full object-cover mb-6 mx-auto"
-                  />
+                  <img src={member.image} alt={member.name} className="w-24 h-24 rounded-full object-cover mb-5 mx-auto ring-4 ring-brand-teal/20" />
                 ) : (
-                  <div className="w-24 h-24 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full flex items-center justify-center mb-6 mx-auto">
-                    <span className="text-white font-bold text-2xl">{member.initials}</span>
+                  <div className="w-24 h-24 bg-brand-teal rounded-full flex items-center justify-center mb-5 mx-auto">
+                    <span className="text-white font-bold text-2xl font-montserrat">{member.name.charAt(0)}</span>
                   </div>
                 )}
-                <h3 className="text-xl font-bold text-white mb-2">{member.name}</h3>
-                <p className="text-purple-400 font-semibold mb-3">{member.title}</p>
-                <p className="text-slate-300 text-sm">{member.credentials}</p>
+                <h3 className="text-lg font-bold text-gray-900 mb-1 font-montserrat">{member.name}</h3>
+                <p className="text-brand-teal font-semibold text-sm mb-2 font-inter">{member.title}</p>
+                <p className="text-gray-500 text-sm font-inter">{member.credentials}</p>
               </motion.div>
             ))}
           </div>
 
-          <div className="bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-2xl p-8 border border-purple-400/30">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              <div>
-                <Award className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white mb-1">ISO 27001</div>
-                <div className="text-slate-300 text-sm">Security Certified</div>
-              </div>
-              <div>
-                <Shield className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white mb-1">SOC 2 Type II</div>
-                <div className="text-slate-300 text-sm">Compliance Ready</div>
-              </div>
-              <div>
-                <Clock className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white mb-1">24/7 Support</div>
-                <div className="text-slate-300 text-sm">Always Available</div>
-              </div>
-              <div>
-                <TrendingUp className="w-8 h-8 text-purple-400 mx-auto mb-3" />
-                <div className="text-2xl font-bold text-white mb-1">99.9% SLA</div>
-                <div className="text-slate-300 text-sm">Uptime Guarantee</div>
-              </div>
+          <div className="bg-white rounded-2xl p-8 border border-gray-200">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              {[
+                { icon: Award, label: "ISO 27001", sub: "Security Certified" },
+                { icon: Shield, label: "SOC 2 Type II", sub: "Compliance Ready" },
+                { icon: Clock, label: "24/7 Support", sub: "Always Available" },
+                { icon: TrendingUp, label: "99.9% SLA", sub: "Uptime Guarantee" },
+              ].map(({ icon: Icon, label, sub }, idx) => (
+                <div key={idx}>
+                  <Icon className="w-7 h-7 text-brand-teal mx-auto mb-3" />
+                  <div className="text-xl font-bold text-gray-900 mb-1 font-montserrat">{label}</div>
+                  <div className="text-gray-500 text-sm font-inter">{sub}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
-    {/* Technology Stack Section */}
-      <section id="technologies" className="py-20 md:py-28 bg-slate-900">
-        <div className="max-w-full mx-auto px-6 md:px-12">
-          <SectionTitle title="Enterprise-Grade Technology Stack" subtitle="Cutting-edge technologies proven at scale with Fortune 500 companies." />
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+
+      {/* ── TECHNOLOGY STACK ── */}
+      <section id="technologies" className="py-20 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <SectionTitle eyebrow="Technology" title="Enterprise-Grade Technology Stack" subtitle="Cutting-edge technologies proven at scale with Fortune 500 companies." />
+
+          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
             {technologies.map((tech, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: idx * 0.05 }}
+                transition={{ duration: 0.3, delay: idx * 0.04 }}
                 viewport={{ once: true }}
-                className="bg-slate-800 rounded-xl p-6 text-center shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-600 hover:border-purple-400"
+                className="bg-gray-50 rounded-xl p-5 text-center border border-gray-100 hover:border-brand-teal hover:shadow-md transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-white rounded-xl mx-auto mb-4 flex items-center justify-center p-2">
-                  <img src={tech.logo} alt={tech.name} className="w-12 h-12 object-contain" />
+                <div className="w-12 h-12 bg-white rounded-lg mx-auto mb-3 flex items-center justify-center p-1.5 shadow-sm">
+                  <img src={tech.logo} alt={tech.name} className="w-full h-full object-contain" />
                 </div>
-                <h4 className="font-bold text-white text-lg">{tech.name}</h4>
-                <p className="text-slate-400 text-xs mt-1">{tech.category}</p>
+                <h4 className="font-bold text-gray-800 text-sm font-inter">{tech.name}</h4>
+                <p className="text-gray-400 text-xs mt-0.5 font-inter">{tech.category}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="py-20 md:py-28 bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 text-white">
-        <div className="max-w-full mx-auto px-6 md:px-12">
+      {/* ── CONTACT ── */}
+      <section id="contact" className="py-20 md:py-28 bg-gray-950 text-white">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid lg:grid-cols-2 gap-16">
-            {/* Left Column - Contact Info */}
             <div>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6">Ready to Transform Your Business?</h2>
-              <p className="text-blue-100 mb-8 text-xl leading-relaxed">
+              <p className="text-brand-teal font-bold text-xs uppercase tracking-widest mb-4 font-inter">Contact Us</p>
+              <h2 className="text-4xl md:text-5xl font-black mb-5 font-montserrat leading-tight">
+                Ready to Transform<br />Your Business?
+              </h2>
+              <p className="text-gray-400 mb-8 leading-relaxed font-inter">
                 Join 200+ enterprise clients who have achieved measurable ROI through our proven digital transformation approach.
               </p>
 
-              <div className="bg-green-500/20 border border-green-400/30 rounded-xl p-6 mb-8">
-                <div className="flex items-center gap-3 mb-3">
-                  <Shield className="w-6 h-6 text-green-400" />
-                  <span className="text-green-400 font-bold text-lg">ROI Guarantee</span>
+              <div className="bg-emerald-900/30 border border-emerald-700/40 rounded-xl p-5 mb-8">
+                <div className="flex items-center gap-3 mb-2">
+                  <Shield className="w-5 h-5 text-emerald-400" />
+                  <span className="text-emerald-400 font-bold text-sm font-inter">ROI Guarantee</span>
                 </div>
-                <p className="text-green-100">30% cost reduction guaranteed or your money back. Risk-free assessment included.</p>
+                <p className="text-emerald-200/70 text-sm font-inter">30% cost reduction guaranteed or your money back.</p>
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-7 h-7" />
+                {[
+                  { icon: Mail, title: "Email", body: "info@digitalfusionsystems.com" },
+                  { icon: Clock, title: "Response Time", body: "Within 4 hours during business days", note: "Emergency response: 30 minutes" },
+                  { icon: Globe, title: "Australia & Asia-Pacific", body: "Serving clients across Australia and regional markets", note: "Local expertise with remote delivery" },
+                ].map(({ icon: Icon, title, body, note }, idx) => (
+                  <div key={idx} className="flex items-start gap-4">
+                    <div className="w-11 h-11 bg-brand-teal/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon className="w-5 h-5 text-brand-teal" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-sm mb-0.5 font-inter">{title}</h3>
+                      <p className="text-gray-400 text-sm font-inter">{body}</p>
+                      {note && <p className="text-gray-500 text-xs mt-0.5 font-inter">{note}</p>}
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Email</h3>
-                    <p className="text-blue-100 text-lg">info@digitalfusionsystems.com</p>
-                  </div>
-                </div>
-
-               
-
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Response Time</h3>
-                    <p className="text-blue-100 text-lg">Within 4 hours during business days</p>
-                    <p className="text-blue-200 text-sm">Emergency response: 30 minutes</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Globe className="w-7 h-7" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Australia & Asia-Pacific</h3>
-                    <p className="text-blue-100 text-lg">Serving clients across Australia and regional markets</p>
-                    <p className="text-blue-200 text-sm">Local expertise with remote delivery capabilities</p>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Right Column - Contact Form */}
-            <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 border border-white/20">
-              <h3 className="text-3xl font-bold mb-6">Schedule Your Free Consultation</h3>
-              
-              {/* Status Messages */}
-{formStatus === 'success' && (
-  <div className="mb-6 p-4 bg-green-500/20 border border-green-400/30 rounded-lg">
-    <div className="flex items-center gap-3">
-      <CheckCircle className="w-5 h-5 text-green-400" />
-      <span className="text-green-400 font-semibold">Message sent successfully!</span>
-    </div>
-    <p className="text-green-100 text-sm mt-2">We'll get back to you within 2 hours during business days.</p>
-  </div>
-)}
+            <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
+              <h3 className="text-2xl font-bold mb-6 font-montserrat">Schedule Your Free Consultation</h3>
 
-{formStatus === 'error' && (
-  <div className="mb-6 p-4 bg-red-500/20 border border-red-400/30 rounded-lg">
-    <div className="flex items-center gap-3">
-      <X className="w-5 h-5 text-red-400" />
-      <span className="text-red-400 font-semibold">Failed to send message</span>
-    </div>
-    <p className="text-red-100 text-sm mt-2">Please try again or email us directly at info@digitalfusionsystems.com</p>
-  </div>
-)}
-
-<form onSubmit={handleFormSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="fullName" className="block text-sm font-medium mb-2">Full Name *</label>
-                    <input
-                      type="text"
-                      id="fullName"
-                      name="fullName"
-                      placeholder="Your full name"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="businessEmail" className="block text-sm font-medium mb-2">Business Email *</label>
-                    <input
-                      type="email"
-                      id="businessEmail"
-                      name="businessEmail"
-                      placeholder="your.email@company.com"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                      required
-                    />
+              {formStatus === 'success' && (
+                <div className="mb-6 p-4 bg-emerald-500/20 border border-emerald-400/30 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle className="w-5 h-5 text-emerald-400" />
+                    <span className="text-emerald-400 font-semibold text-sm font-inter">Message sent successfully!</span>
                   </div>
                 </div>
+              )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      placeholder="+61 123 456 789"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="companyName" className="block text-sm font-medium mb-2">Company Name *</label>
-                    <input
-                      type="text"
-                      id="companyName"
-                      name="companyName"
-                      placeholder="Your company name"
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                      required
-                    />
+              {formStatus === 'error' && (
+                <div className="mb-6 p-4 bg-red-500/20 border border-red-400/30 rounded-lg">
+                  <div className="flex items-center gap-2">
+                    <X className="w-5 h-5 text-red-400" />
+                    <span className="text-red-400 font-semibold text-sm font-inter">Failed to send. Please try again.</span>
                   </div>
                 </div>
+              )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <form onSubmit={handleFormSubmit} className="space-y-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="position" className="block text-sm font-medium mb-2">Your Position</label>
-                    <input
-                      type="text"
-                      id="position"
-                      name="position"
-                      placeholder="e.g. CTO, IT Director, etc."
-                      className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400"
-                    />
+                    <label className="block text-xs font-semibold text-gray-400 mb-1.5 font-inter">Full Name *</label>
+                    <input type="text" name="fullName" placeholder="Your full name" required className="w-full px-4 py-3 bg-white/10 border border-white/15 rounded-lg text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal font-inter" />
                   </div>
-
-                  
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-400 mb-1.5 font-inter">Business Email *</label>
+                    <input type="email" name="businessEmail" placeholder="your@company.com" required className="w-full px-4 py-3 bg-white/10 border border-white/15 rounded-lg text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal font-inter" />
+                  </div>
                 </div>
-
-                
-
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-400 mb-1.5 font-inter">Phone Number</label>
+                    <input type="tel" name="phone" placeholder="+61 123 456 789" className="w-full px-4 py-3 bg-white/10 border border-white/15 rounded-lg text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal font-inter" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-gray-400 mb-1.5 font-inter">Company Name *</label>
+                    <input type="text" name="companyName" placeholder="Your company" required className="w-full px-4 py-3 bg-white/10 border border-white/15 rounded-lg text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal font-inter" />
+                  </div>
+                </div>
                 <div>
-                  <label htmlFor="enquiryDetails" className="block text-sm font-medium mb-2">Project Details *</label>
-                  <textarea
-                    id="enquiryDetails"
-                    name="enquiryDetails"
-                    rows={4}
-                    placeholder="Please describe your project requirements, current challenges, and specific objectives..."
-                    className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-purple-400 resize-none"
-                    required
-                  />
+                  <label className="block text-xs font-semibold text-gray-400 mb-1.5 font-inter">Your Position</label>
+                  <input type="text" name="position" placeholder="e.g. CTO, IT Director" className="w-full px-4 py-3 bg-white/10 border border-white/15 rounded-lg text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal font-inter" />
                 </div>
-
+                <div>
+                  <label className="block text-xs font-semibold text-gray-400 mb-1.5 font-inter">Project Details *</label>
+                  <textarea name="enquiryDetails" rows={4} placeholder="Describe your project requirements..." required className="w-full px-4 py-3 bg-white/10 border border-white/15 rounded-lg text-white placeholder-gray-500 text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal resize-none font-inter" />
+                </div>
                 <button
-  type="submit"
-  disabled={formStatus === 'loading'}
-  className={`w-full ${
-    formStatus === 'loading' 
-      ? 'bg-gray-500 cursor-not-allowed' 
-      : 'bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600'
-  } text-white font-bold py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 text-lg`}
->
-  {formStatus === 'loading' ? (
-    <>
-      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
-      Sending...
-    </>
-  ) : (
-    <>
-      <Calendar className="w-5 h-5" />
-      Schedule Consultation
-    </>
-  )}
-</button>
-
-                <div className="text-center pt-4 border-t border-white/20">
-                  <p className="text-blue-200 text-sm">
-                    Your information is secure and will never be shared. 
-                    <br />Expect a response within 2 hours during business days.
-                  </p>
-                </div>
+                  type="submit"
+                  disabled={formStatus === 'loading'}
+                  className={`w-full py-3.5 px-6 rounded-lg font-bold text-sm flex items-center justify-center gap-2 font-inter transition-colors ${formStatus === 'loading' ? 'bg-gray-600 cursor-not-allowed text-gray-300' : 'bg-brand-teal hover:bg-brand-teal-dark text-white'}`}
+                >
+                  {formStatus === 'loading' ? (
+                    <><div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />Sending...</>
+                  ) : (
+                    <><Calendar className="w-4 h-4" />Schedule Consultation</>
+                  )}
+                </button>
+                <p className="text-center text-gray-500 text-xs font-inter">Your information is secure and will never be shared.</p>
               </form>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-400 py-12">
-        <div className="max-w-full mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      {/* ── FOOTER ── */}
+      <footer className="bg-gray-900 text-gray-500 py-12">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <img src="/DF5.png" alt="Digital Fusion Systems Logo" className="h-10 w-10" />
-                <div className="text-xl font-bold text-white">Digital Fusion Systems</div>
+                <img src="/DF5.png" alt="Digital Fusion Systems" className="h-9 w-9" />
+                <span className="text-white font-black text-base font-montserrat">Digital Fusion Systems</span>
               </div>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Transforming enterprises through innovative technology solutions with guaranteed ROI.
-              </p>
+              <p className="text-sm leading-relaxed font-inter">Transforming enterprises through innovative technology solutions with guaranteed ROI.</p>
             </div>
-            
             <div>
-              <h4 className="text-white font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Digital Transformation</a></li>
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Enterprise Applications</a></li>
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">AI & Machine Learning</a></li>
-                <li><a href="#services" className="hover:text-purple-400 transition-colors">Cloud Solutions</a></li>
+              <h4 className="text-white font-bold text-sm mb-4 font-inter">Services</h4>
+              <ul className="space-y-2 text-sm font-inter">
+                {["Digital Transformation", "Enterprise Applications", "AI & Machine Learning", "Cloud Solutions"].map((s) => (
+                  <li key={s}><a href="#services" className="hover:text-brand-teal transition-colors">{s}</a></li>
+                ))}
               </ul>
             </div>
-            
             <div>
-              <h4 className="text-white font-semibold mb-4">Industries</h4>
-              <ul className="space-y-2 text-sm">
-                <li><a href="#industries" className="hover:text-purple-400 transition-colors">Banking & Fintech</a></li>
-                <li><a href="#industries" className="hover:text-purple-400 transition-colors">Healthcare</a></li>
-                <li><a href="#industries" className="hover:text-purple-400 transition-colors">Public Sector</a></li>
-                <li><a href="#industries" className="hover:text-purple-400 transition-colors">Enterprise</a></li>
+              <h4 className="text-white font-bold text-sm mb-4 font-inter">Industries</h4>
+              <ul className="space-y-2 text-sm font-inter">
+                {["Banking & Fintech", "Healthcare", "Public Sector", "Enterprise"].map((s) => (
+                  <li key={s}><a href="#industries" className="hover:text-brand-teal transition-colors">{s}</a></li>
+                ))}
               </ul>
             </div>
-            
             <div>
-              <h4 className="text-white font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm">
+              <h4 className="text-white font-bold text-sm mb-4 font-inter">Contact</h4>
+              <ul className="space-y-2 text-sm font-inter">
                 <li>info@digitalfusionsystems.com</li>
                 <li>Response time: 4 hours</li>
+                <li>Australia & Asia-Pacific</li>
               </ul>
             </div>
           </div>
-          
-          <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; 2024 Digital Fusion Systems. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              <a href="#" className="hover:text-purple-400 transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-purple-400 transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-purple-400 transition-colors">Cookie Policy</a>
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-sm font-inter">&copy; 2024 Digital Fusion Systems. All rights reserved.</p>
+            <div className="flex gap-6 text-sm font-inter">
+              {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((l) => (
+                <a key={l} href="#" className="hover:text-brand-teal transition-colors">{l}</a>
+              ))}
             </div>
           </div>
         </div>
       </footer>
+
     </div>
   );
 }
