@@ -176,14 +176,14 @@ const stats = [
 const teamMembers = [
   {
     name: "Steve Masood",
-    title: "Principal Architect / DevOps",
-    credentials: "Azure, AWS, GCP — 10+ years",
+    title: "Senior Data, BI & Analytics Consultant & Advisor | Senior Business Analyst / BI Lead",
+    credentials: "Microsoft Power BI • Business Intelligence • Business Analysis • QlikView • Snowflake",
     image: "/Steve.png",
   },
   {
     name: "Marcus Ejaz",
-    title: "Principal Architect / DevOps",
-    credentials: "Azure, AWS, GCP — 10+ years",
+    title: "Principal DevOps Engineer & Cloud Solutions Architect | Multi-Cloud Infrastructure | Enterprise Migrations | Azure & AWS Expert | NV1",
+    credentials: "Technical Data Analysis • Microsoft Azure • Amazon Web Services (AWS) • DevOps • Cloud Security",
     image: "/Marcus.jpeg",
   },
   {
