@@ -197,36 +197,23 @@ const stats = [
 
 // Team members with credentials
 const teamMembers = [
-  {
-    name: "Alex Johnson",
-    title: "CEO & Technical Lead",
-    credentials: "15+ years, former Microsoft Azure architect",
-    initials: "AJ",
-    image: "/Alex.jpg"
-  },
-  {
-    name: "Sarah Kim",
-    title: "Head of AI/ML",
-    credentials: "Advanced degree in Computer Science, AI specialist",
-    initials: "SK",
-    image: "/Sarah.jpg"
-  },
-  {
-    name: "Umair Ejaz",
+{
+    name: "Steve Masood",
     title: "Principal Architect/DevOps",
     credentials: "Azure, AWS, GCP, 10+ years",
     initials: "UE",
     image: "/Umair.jpeg"
   },
   {
-    name: "Marcus Chen",
-    title: "Cloud Solutions Director",
-    credentials: "AWS Certified Solutions Architect, 12+ years",
-    initials: "MC",
-    image: "/Marcus.jpg"
+    name: "Marcus Ejaz",
+    title: "Principal Architect/DevOps",
+    credentials: "Azure, AWS, GCP, 10+ years",
+    initials: "UE",
+    image: "/Umair.jpeg"
   },
+
    {
-    name: "Mohammed Al-shameri",
+    name: "Mo Shameri",
     title: "Principal DevOps Engineer",
     credentials: "Professional AWS certified, 7+ years",
     initials: "MA",
